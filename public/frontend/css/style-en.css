@@ -1,0 +1,66 @@
+html,body{
+    direction: ltr;
+    text-align: start;
+}
+.m-category-item .more{
+    left: unset;
+    right: 15px;
+}
+.m-category-item .more svg{
+    transform: rotate(180deg);
+}
+.product-item .add-to-favorite{
+    right: 0;
+    left: unset;
+}
+.product-item .discout{
+    left: 6px;
+    right: unset;
+}
+.fa-chevron-right:before{
+    content: "\f053";
+}
+.fa-chevron-left:before{
+    content: "\f054";
+}
+.home-slider .owl-nav .owl-next{
+    right: 0;
+    left: unset;
+}
+.home-slider .owl-nav .owl-prev{
+    left: 0;
+    right: unset;
+}
+.news-item .read-more svg{
+    transform: rotate(180deg);
+}
+.main-footer .scroll-to-top{
+    right: 0;
+    left: unset;
+}
+.fa-angle-left:before{
+    content: "\f105";
+}
+.cs-checkbox-1 .checkmark{
+    left: 0px;
+    right: unset;
+}
+.noUi-horizontal .noUi-handle{
+    left: -17px;
+    right: unset;
+}
+.product-feature p::before{
+    left: 0;
+    right: unset;
+}
+.custom-tabs{
+    padding-left: 0;
+}
+.description ol li::before, .description ul li::after{
+    left: -27px;
+    right: unset;
+}
+.icon-input .icon-i{
+    left: 22px;
+    right: unset;
+}
