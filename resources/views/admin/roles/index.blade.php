@@ -36,10 +36,9 @@
                                 <td>{{ $roles->id }}</td>
                                 <td>{{ $roles->name }}</td>
                                 <td>{{ $roles->guard_name }}</td>
-                                <td>
-                                    <a herf=""
-                                    class="btn btn-block btn-secondary btn-flat">
-                                    Permissions({{ count($roles->permissions)}}) </a></td> 
+                                <td> <a herf="{{route('role.show',$roles->id)}}"
+                                    class="btn btn-block btn-secondary btn-sm">
+                                    Permissions({{ count($roles->permissions)}})</a></td> 
                                 <td>{{ $roles->created_at }}</td>
                                 <td>{{ $roles->updated_at }}</td>
                                 < <td>

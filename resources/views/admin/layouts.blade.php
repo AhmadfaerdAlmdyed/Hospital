@@ -17,6 +17,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{asset('cmc/dist/css/adminlte.min.css')}}">
   <link rel="stylesheet" href="{{asset('cmc/plugins/select2/css/select2.min.css')}} ">
   <link rel="stylesheet" href="{{asset('cmc/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset('cms/plugins/toastr/toastr.min.css') }}">
+ 
   @yield('css')
 </head>
 <body class="hold-transition sidebar-mini">
@@ -256,7 +259,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <i class="nav-icon fas fa-th"></i>
                 <p>
                 Roles
-
                 </p>
             </a>
         </li>
@@ -264,8 +266,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="{{ route('permissions.index')}}" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                Permission
-                    
+                Permission  
                 </p>
             </a>
         </li>
@@ -359,6 +360,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('cmc/dist/js/adminlte.min.js')}}"></script>
 <script src="{{asset('cmc/plugins/select2/js/select2.full.min.js')}}"></script>
 <script src="{{asset('cmc/dist/js/adminlte.min.js')}}"></script>
+<!-- axios && sweet  -->
+<script src="{{ asset('js/axios.js') }}"></script>
+<script src="{{ asset('js/sweet.js') }}"></script>
+<script src="{{ asset('cms/plugins/toastr/toastr.min.js') }}"></script> 
 @yield('script')
 </body>
 </html>
