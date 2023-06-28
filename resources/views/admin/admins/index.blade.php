@@ -30,19 +30,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($data as $hospital)
+                        @foreach ($data as $admins)
                             <tr>
-                                <td>{{ $hospital->id }}</td>
-                                <td>{{ $hospital->name }}</td>
-                                <td>{{ $hospital->email }}</td>
-                                <td>{{ $hospital->created_at }}</td>
-                                <td>{{ $hospital->updated_at }}</td>
+                                <td>{{ $admins->id }}</td>
+                                <td>{{ $admins->name }}</td>
+                                <td>{{ $admins->email }}</td>
+                                <td>{{ $admins->created_at }}</td>
+                                <td>{{ $admins->updated_at }}</td>
                                 <td>
                                     <div class="btn-group">
                                         <div class="btn-group">
-                                            <a href="{{ route('admins.edit', $hospital->id) }}" class="btn btn-info"><i
+                                            <a href="{{ route('admins.edit', $admins->id) }}" class="btn btn-info"><i
                                                     class="fas fa-edit"></i></a>
-                                            <form action="{{ route('admins.destroy', $hospital->id) }}" method="POST">
+                                            <form action="{{ route('admins.destroy', $admins->id) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="btn btn-danger"><i
@@ -53,7 +53,7 @@
                                     </div>
                                 </td>
                             </tr>
-                        @endforeach --}}
+                        @endforeach
 
                     </tbody>
                 </table>

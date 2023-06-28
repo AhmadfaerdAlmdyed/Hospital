@@ -12,14 +12,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="{{asset('cmc/plugins/fontawesome-free/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('cmc/plugins/fontawesome-free/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('cmc/plugins/select2/css/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('cmc/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('cmc/dist/css/adminlte.min.css')}}">
-  <link rel="stylesheet" href="{{asset('cmc/plugins/select2/css/select2.min.css')}} ">
-  <link rel="stylesheet" href="{{asset('cmc/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('cmc/plugins/toastr/toastr.min.css') }}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('cms/plugins/toastr/toastr.min.css') }}">
- 
+  <link rel="stylesheet" href="{{ asset('cmc/dist/css/adminlte.min.css') }}">
   @yield('css')
 </head>
 <body class="hold-transition sidebar-mini">
@@ -217,59 +216,80 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
 
           </li>
-          {{-- Hospitals --}}
-          <li class="nav-item">
-            <a href="{{route('hosptials.index')}}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>Hospitals
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
-          {{-- Major --}}
-          <li class="nav-item">
+          @can('index-hospitals')
+             {{-- Hospitals --}}
+            <li class="nav-item">
+              <a href="{{route('hosptials.index')}}" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>Hospitals
+                  <span class="right badge badge-danger">New</span>
+                </p>
+              </a>
+            </li>
+          @endcan
+         
+          @can('index-majors')
+           {{-- Major --}}
+            <li class="nav-item">
             <a href="{{route('majors.index')}}" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>Major
                     <span class="right badge badge-danger">New</span>
                 </p>
             </a>
-         </li>
-         {{-- Doctor --}}
-          <li class="nav-item">
-            <a href="{{route('doctors.index')}}" class="nav-link">
-                <i class="nav-icon fas fa-th    "></i>
-                <p>Doctor
-                    <span class="right badge badge-danger">New</span>
-                </p>
-            </a>
-         </li>
+            </li>
+          @endcan
+          
+          @can('index-doctors')
+             {{-- Doctor --}}
+            <li class="nav-item">
+              <a href="{{route('doctors.index')}}" class="nav-link">
+                  <i class="nav-icon fas fa-th    "></i>
+                  <p>Doctor
+                      <span class="right badge badge-danger">New</span>
+                  </p>
+              </a>
+            </li>
+          @endcan
+          
+          @can('index-admins')
+            <li class="nav-item">
+              <a href="{{ route('admins.index')}}" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                      Admins
+                      <span class="right badge badge-danger">New</span>
+                  </p>
+              </a>
+            </li>
+          @endcan
+           @canany(['index-roles', 'index-permissions',])
+              <span><h3>Roles&Permission</h3> </span> 
+           @endcanany
+           
+
+          @can('index-roles')
              <li class="nav-item">
-            <a href="{{ route('admins.index')}}" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                    Admins
-                    <span class="right badge badge-danger">New</span>
-                </p>
-            </a>
-        </li>
-        <span><h3>Roles&Permission</h3> </span>
-        <li class="nav-item">
-            <a href="{{ route('roles.index')}}" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                Roles
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('permissions.index')}}" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                Permission  
-                </p>
-            </a>
-        </li>
+              <a href="{{ route('roles.index')}}" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                  Roles
+                  </p>
+              </a>
+            </li>
+          @endcan
+        
+          @can('index-permissions')
+            <li class="nav-item">
+              <a href="{{ route('permissions.index')}}" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                  Permission  
+                  </p>
+              </a>
+             </li>
+         @endcan
+        
          <span><h2>Setting</h2> </span>
          {{-- logout --}}
          <li class="nav-item">
@@ -363,7 +383,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- axios && sweet  -->
 <script src="{{ asset('js/axios.js') }}"></script>
 <script src="{{ asset('js/sweet.js') }}"></script>
-<script src="{{ asset('cms/plugins/toastr/toastr.min.js') }}"></script> 
+<script src="{{ asset('cmc/plugins/toastr/toastr.min.js') }}"></script> 
 @yield('script')
 </body>
 </html>

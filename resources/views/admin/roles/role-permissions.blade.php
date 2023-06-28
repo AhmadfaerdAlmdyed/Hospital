@@ -33,6 +33,7 @@
                                 <td>{{ $permission->guard_name}}</td>
                                 <td>
                                     <div class="form-check">
+                                        
                                         <input onclick="assign('{{ $role->id }}','{{ $permission->id }}')"
                                          class="form-check-input"
                                           type="checkbox"
@@ -67,7 +68,7 @@
 
 <script>
     function assign(roleId,permissionId){
-        axios.post('admin/permissions/role',{
+        axios.post('/admin/permissions/role',{
             role_Id:roleId,
             permission_Id:permissionId
         }).then(function(response){

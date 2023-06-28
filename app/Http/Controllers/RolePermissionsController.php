@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Dotenv\Validator;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Permission as ModelsPermission;
@@ -37,17 +37,17 @@ class RolePermissionsController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator($request->all(),[
-            'role_id' => 'required|string|exists:roles,id',
-            'permission_id' => 'required|string|exists:permissions,id'
+        $validator =Validator($request->all(),[
+            'role_Id' => 'required|string|exists:roles,id',
+            'permission_Id' => 'required|string|exists:permissions,id'
         ]);
         if(! $validator->fails()){
-            $role = Role::where('id',$request->get('role_id'))->first();
-            $permission = Permission::where('id', $request->get('permission_id'))->first();
+            $role = Role::where('id',$request->get('role_Id'))->first();
+            $permission = Permission::where('id', $request->get('permission_Id'))->first();
             if($role->hasPermissionTo($permission)){
                 $role->revokePermissionTo($permission);
             }else{
-                $role->givePermissionTo($permission);
+                $role->givePermissionTo($permission); 
             }
               $is_saved =$role->save();
               if($is_saved){
@@ -56,7 +56,7 @@ class RolePermissionsController extends Controller
                 ],201);
               }
         }else{
-            return response()->json([
+            return response()->json([   
                 'message' => $validator->getMessageBag()->first()
             ], 400);
         }

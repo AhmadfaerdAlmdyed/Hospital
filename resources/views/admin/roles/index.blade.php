@@ -36,12 +36,12 @@
                                 <td>{{ $roles->id }}</td>
                                 <td>{{ $roles->name }}</td>
                                 <td>{{ $roles->guard_name }}</td>
-                                <td> <a herf="{{route('role.show',$roles->id)}}"
-                                    class="btn btn-block btn-secondary btn-sm">
+                                <td> <a href="{{ route('role.show',$roles->id) }}"
+                                    class="btn btn-success float-right">
                                     Permissions({{ count($roles->permissions)}})</a></td> 
                                 <td>{{ $roles->created_at }}</td>
                                 <td>{{ $roles->updated_at }}</td>
-                                < <td>
+                                <td>
                                     <div class="btn-group">
                                         <div class="btn-group">
                                             <a href="{{ route('roles.edit', $roles->id) }}" class="btn btn-info"><i
