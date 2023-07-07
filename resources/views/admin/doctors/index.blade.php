@@ -25,6 +25,7 @@
             <th>email</th>
             <th>phone</th>
             <th >cover</th>
+            <th>hospitals</th>
             <th >Create Data</th>
             <th >Update Data</th>
             <th>Actions</th>
@@ -39,6 +40,7 @@
             <td>{{$doctors ->phone}}</td>
             <td><img style="width: 60px ;height:60px ;"
               src="{{Storage::url('doctors/'.$doctors->cover)}}"></td>
+              <td>{{$doctors->hosptial_id}}</td>
             <td>{{$doctors->created_at}}</td>
             <td>{{$doctors->updated_at}}</td>
 

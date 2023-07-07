@@ -32,7 +32,7 @@ class AuthController extends Controller
           }
          else{
           return redirect()->back();
-        }
+        } 
     }
     public function changePassword(){
             return view('admin.auth.change_password');
@@ -47,7 +47,7 @@ class AuthController extends Controller
             $user->password = Hash::make($request->get('new-password'));
             $user->save();
             return view('admin.home');
-    }
+          }
     public function logout(Request $request)
         {
         Auth::guard('admin')->logout();

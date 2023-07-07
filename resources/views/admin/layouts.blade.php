@@ -32,22 +32,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="{{ route('admin.home') }}" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="{{ route('home') }}" class="nav-link">Contact</a>
       </li>
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
         <div class="navbar-search-block">
-          {{-- <form class="form-inline">
+          <form class="form-inline">
             <div class="input-group input-group-sm">
               <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
               <div class="input-group-append">
@@ -59,7 +55,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </button>
               </div>
             </div>
-          </form> --}}
+          </form>
         </div>
       </li>
 
@@ -251,17 +247,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
           @endcan
-          
+        
           @can('index-admins')
-            <li class="nav-item">
-              <a href="{{ route('admins.index')}}" class="nav-link">
-                  <i class="nav-icon fas fa-th"></i>
-                  <p>
-                      Admins
-                      <span class="right badge badge-danger">New</span>
-                  </p>
-              </a>
-            </li>
+          <li class="nav-item">
+            <a href="{{ route('admins.index')}}" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                    Admins
+                    <span class="right badge badge-danger">New</span>
+                </p>
+            </a>
+          </li>
           @endcan
            @canany(['index-roles', 'index-permissions',])
               <span><h3>Roles&Permission</h3> </span> 
@@ -269,27 +265,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
            
 
           @can('index-roles')
-             <li class="nav-item">
-              <a href="{{ route('roles.index')}}" class="nav-link">
-                  <i class="nav-icon fas fa-th"></i>
-                  <p>
-                  Roles
-                  </p>
-              </a>
-            </li>
+          <li class="nav-item">
+            <a href="{{ route('roles.index')}}" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                Roles
+                </p>
+            </a>
+          </li>
           @endcan
+         
         
           @can('index-permissions')
-            <li class="nav-item">
-              <a href="{{ route('permissions.index')}}" class="nav-link">
-                  <i class="nav-icon fas fa-th"></i>
-                  <p>
-                  Permission  
-                  </p>
-              </a>
-             </li>
+          <li class="nav-item">
+            <a href="{{ route('permissions.index')}}" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                Permission  
+                </p>
+            </a>
+           </li>
          @endcan
-        
+         
          <span><h2>Setting</h2> </span>
          {{-- logout --}}
          <li class="nav-item">
@@ -325,7 +322,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
               <li class="breadcrumb-item active">@yield('title')</li>
             </ol>
           </div><!-- /.col -->

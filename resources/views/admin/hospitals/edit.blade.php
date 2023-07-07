@@ -23,6 +23,17 @@
             @endforeach
           </div>
           @endif
+          <div class="form-group" data-select2-id="28">
+            <label>Select Majors</label>
+            <select class="select2 select2-hidden-accessible"
+              multiple="" data-placeholder="Select a State" style="width: 100%;
+              margin-left: 2px ;"
+             data-select2-id="6" tabindex="-1" 
+             aria-hidden="true" name="majors[]">
+             @foreach ($majors as $major)
+             <option value="{{$major->id}}">{{$major->name}}</option>
+             @endforeach
+            </select>
           <div class="card-body">
             <div class="form-group">
               <label for="exampleInputEmail1">name</label>
@@ -76,7 +87,17 @@
         </form>
       </div>
 </div>
-
+@section('script')
+<script>
+     $(function(){
+        $('.select2').select2({
+            majors :true,
+            tokenSepators: [',','  '],
+            theme: 'bootstrap4'
+    })
+    })
+</script>
+@endsection
 
 @endsection
 

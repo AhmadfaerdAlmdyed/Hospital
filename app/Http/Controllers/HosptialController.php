@@ -48,6 +48,7 @@ class HosptialController extends Controller
             'is_active'=>'in:on|string',
             'cover'=>'image|nullable|mimes:jpg,png'
         ]);
+        
             $hosptial =new Hosptial();
             $hosptial->name=$request ->get('name');
             $hosptial->location=$request ->get('location');
@@ -86,9 +87,10 @@ class HosptialController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    { 
+        $majors=Major::all();
         $hosptial=Hosptial::find($id);
-        return view('admin.hospitals.edit',compact('hosptial'));
+        return view('admin.hospitals.edit',compact('hosptial','majors'));
 
     }
 
@@ -120,6 +122,7 @@ class HosptialController extends Controller
                 }
         $hosptial->is_active=$request ->has('is_active');
          $seved= $hosptial->save();
+         $hosptial->majors()->attach($request->get('majors'));
         if($seved){
             session()->flash('massage','hospitls Updated  scssesfuly');
            return redirect()->route('hosptials.index');

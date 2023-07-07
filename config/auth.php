@@ -38,14 +38,15 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'user' => [
             'driver' => 'session',
             'provider' => 'users',
         ],      
         'admin'=>[
             'driver' => 'session',
             'provider' => 'admins',
-        ]
+        ],
+        
     ],
 
     /*

@@ -1,192 +1,16 @@
-<!doctype html>
+@extends('frontend.layouts')
+@section('content')
 
-<html lang="en" dir="rtl">
+<div class="side-overlay"></div>
+<!-- Side Menu -->
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>Right Guide</title>
-    <!-- Required meta tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="keywords" content="">
-    <meta name="copyright" content="" />
-    <link rel="icon" href="{{ asset('frontend/images/icon.svg') }}">
-    <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
-    <!-- <link rel="stylesheet" href="assets/css/bootstrap-rtl.min.css"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('frontend/plugins/font-awesome/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/plugins/animate/animate.css') }}">
-    <!-- owl slider CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/plugins/owlslider/assets/owl.carousel.min.css') }}" />
-
-    <link rel="stylesheet" href="{{ asset('frontend/plugins/fancybox/jquery.fancybox.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/css/style.css')}}">
-    <!-- <link rel="stylesheet" href="assets/css/style-en.css"> -->
-
-</head>
-
-<body>
-
-    <!-- pre-loader -->
-    <section class="pre-loader">
-        <div class="loader">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </section>
-    <!-- pre-loader -->
-
-    <!-- Side Menu -->
-    <aside class="side-menu">
-        <div class="text-right">
-            <button class="bg-transparent border-0 btn text-muted btn-lg" id="closeMenu">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="scroll-menu">
-            <nav class="scrollspy_menu">
-                <ul class="navbar-nav">
-                    <li class="nav-item active underline_header_titles">
-                        <a class="nav-link" href="index.html">الرئيسية </a>
-                    </li>
-                    <li class="nav-item">
-                        <div class="cs-dropdown">
-
-                            <div class="dropdown">
-                                <button class="btn dropdown-toggle" type="button" id="achievements" data-bs-toggle="dropdown" aria-expanded="false">
-                                    الخدمات الصحية
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="achievements">
-                                  <li><a class="dropdown-item" href="service-details.html">التأمين الصحي</a></li>
-                                  <li><a class="dropdown-item" href="service-details.html">الاستشارات القانونية</a></li>
-                                </ul>
-                              </div>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact-us.html">تواصل معنا</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="btn cs-btn">
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="26.605" height="24"
-                                    viewBox="0 0 26.605 24">
-                                    <g id="Group_63524" data-name="Group 63524" transform="translate(-371.4 -32)">
-                                        <g id="Pin_-_1" data-name="Pin - 1" transform="translate(375.232 32)">
-                                            <g id="Group_63492" data-name="Group 63492">
-                                                <path id="Path_42105" data-name="Path 42105"
-                                                    d="M447.555,329.927a1.624,1.624,0,0,1-1.274-.613c-2.93-3.668-6.477-8.12-6.727-8.5-.109-.165-.214-.337-.313-.51a1.474,1.474,0,0,1,1.273-2.211h1.521a1.47,1.47,0,0,1,1.255.707,1.869,1.869,0,0,0,1.653.819h4.47a3.574,3.574,0,0,0,1.584-2.7,2,2,0,0,0-.364-1.416,1.191,1.191,0,0,0-.844-.325h-1.915a1.372,1.372,0,0,1-1.223-.6,1.418,1.418,0,0,1,0-1.412l.015-.03.378-.679a1.325,1.325,0,0,0,0-1.5l-2.308,3.422a1.809,1.809,0,0,1-1.5.8h-3.567a1.468,1.468,0,0,1-1.156-.559,1.451,1.451,0,0,1-.28-1.235,9.589,9.589,0,0,1,2.538-4.6l.048-.048a9.506,9.506,0,0,1,13.477,0l.048.048a9.607,9.607,0,0,1,1.24,12c-.038.059-.154.237-6.751,8.531a1.624,1.624,0,0,1-1.276.617Zm-7.041-10.418a.047.047,0,0,0-.047.026.06.06,0,0,0,0,.065c.084.147.174.293.267.434.19.282,2.739,3.5,6.65,8.4a.215.215,0,0,0,.169.081h0a.215.215,0,0,0,.171-.083c3.933-4.946,6.485-8.168,6.679-8.433a8.188,8.188,0,0,0-1.063-10.219l-.048-.048a8.092,8.092,0,0,0-11.473,0l-.048.049a8.174,8.174,0,0,0-2.162,3.925.034.034,0,0,0,.009.033.059.059,0,0,0,.048.024h3.567a.4.4,0,0,0,.328-.175l2.357-3.495a1.345,1.345,0,0,1,2.065-.2,2.644,2.644,0,0,1,.288,3.267l-.336.6h1.853a2.614,2.614,0,0,1,1.866.761,3.219,3.219,0,0,1,.756,2.457c-.1,2.345-2.089,4.059-2.9,4.059h-4.564a3.249,3.249,0,0,1-2.857-1.491.067.067,0,0,0-.052-.035Zm8.857.13Z"
-                                                    transform="translate(-438.194 -305.927)" fill="#ff9f2d" />
-                                            </g>
-                                        </g>
-                                        <path id="Path_42106" data-name="Path 42106"
-                                            d="M451.7,336.415l-.079.1a.059.059,0,0,0,.042.1c2.263.234,3.684.571,3.684.945,0,.7-5.044,1.274-11.264,1.274s-11.264-.571-11.264-1.274c0-.357,1.282-.678,3.347-.91a.06.06,0,0,0,.041-.1l-.078-.1a.059.059,0,0,0-.054-.023c-3.217.363-5.295.942-5.295,1.592,0,1.1,5.956,2,13.3,2s13.3-.893,13.3-2c0-.673-2.225-1.268-5.631-1.63A.061.061,0,0,0,451.7,336.415Z"
-                                            transform="translate(-59.379 -288.601)" fill="#00ce68" />
-                                    </g>
-                                </svg>
-
-                            </span>
-                            VIP
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="btn cs-btn v2">الدخول</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="lang d-lg-block d-none">
-                <a href="#">
-                    <label for="">EN</label>
-                    <span class="show">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                            <g id="vuesax_bulk_global" data-name="vuesax/bulk/global" transform="translate(-174 -254)">
-                                <g id="global">
-                                    <path id="Vector"
-                                        d="M4.59,4.57c-.03,0-.07.02-.1.02A10.006,10.006,0,0,1,0,.1C0,.07.02.03.02,0A31.893,31.893,0,0,0,3.75.84,33.548,33.548,0,0,0,4.59,4.57Z"
-                                        transform="translate(175.06 268.34)" fill="#e2e2e2" />
-                                    <path id="Vector-2" data-name="Vector"
-                                        d="M4.65.11A10.093,10.093,0,0,1,0,4.68,30.563,30.563,0,0,0,.91.84,31.281,31.281,0,0,0,4.63,0C4.62.04,4.65.08,4.65.11Z"
-                                        transform="translate(188.29 268.34)" fill="#e2e2e2" />
-                                    <path id="Vector-3" data-name="Vector"
-                                        d="M4.73,4.73A31.643,31.643,0,0,0,.91,3.82,27.914,27.914,0,0,0,0,0,10.052,10.052,0,0,1,4.73,4.73Z"
-                                        transform="translate(188.29 254.98)" fill="#e2e2e2" />
-                                    <path id="Vector-4" data-name="Vector"
-                                        d="M4.67.03a31.248,31.248,0,0,0-.83,3.72A28.87,28.87,0,0,0,0,4.65,10.093,10.093,0,0,1,4.57,0C4.6,0,4.64.03,4.67.03Z"
-                                        transform="translate(174.98 255.06)" fill="#e2e2e2" />
-                                    <path id="Vector-5" data-name="Vector"
-                                        d="M6.98,4.59A31.328,31.328,0,0,0,0,4.59,28.373,28.373,0,0,1,1.02.53,1.635,1.635,0,0,0,1.04.31,10.406,10.406,0,0,1,3.49,0,10.322,10.322,0,0,1,5.93.31a1.66,1.66,0,0,0,.03.22A28.712,28.712,0,0,1,6.98,4.59Z"
-                                        transform="translate(180.51 254)" fill="#05060f" />
-                                    <path id="Vector-6" data-name="Vector"
-                                        d="M4.59,6.98A28.043,28.043,0,0,1,.53,5.96a1.635,1.635,0,0,0-.22-.02A10.406,10.406,0,0,1,0,3.49,10.322,10.322,0,0,1,.31,1.05a1.66,1.66,0,0,0,.22-.03A29.77,29.77,0,0,1,4.59,0,32.574,32.574,0,0,0,4.59,6.98Z"
-                                        transform="translate(174 260.51)" fill="#05060f" />
-                                    <path id="Vector-7" data-name="Vector"
-                                        d="M4.59,3.49a10.406,10.406,0,0,1-.31,2.45,1.635,1.635,0,0,0-.22.02A30.143,30.143,0,0,1,0,6.98,31.329,31.329,0,0,0,0,0,28.373,28.373,0,0,1,4.06,1.02a.833.833,0,0,0,.22.03A10.389,10.389,0,0,1,4.59,3.49Z"
-                                        transform="translate(189.41 260.51)" fill="#05060f" />
-                                    <path id="Vector-8" data-name="Vector"
-                                        d="M6.98,0A28.043,28.043,0,0,1,5.96,4.06a1.66,1.66,0,0,0-.03.22,10.322,10.322,0,0,1-2.44.31,10.406,10.406,0,0,1-2.45-.31,1.635,1.635,0,0,0-.02-.22A29.77,29.77,0,0,1,0,0,31.29,31.29,0,0,0,3.49.22,31.14,31.14,0,0,0,6.98,0Z"
-                                        transform="translate(180.51 269.41)" fill="#05060f" />
-                                    <path id="Vector-9" data-name="Vector"
-                                        d="M7.763,7.763a30.039,30.039,0,0,1-7.527,0,30.039,30.039,0,0,1,0-7.527,30.039,30.039,0,0,1,7.527,0A30.039,30.039,0,0,1,7.763,7.763Z"
-                                        transform="translate(180 260)" fill="#05060f" />
-                                </g>
-                            </g>
-                        </svg>
-                    </span>
-                    <span class="hide">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                            <g id="vuesax_bulk_global" data-name="vuesax/bulk/global" transform="translate(-174 -254)">
-                                <g id="global">
-                                    <path id="Vector"
-                                        d="M4.59,4.57c-.03,0-.07.02-.1.02A10.006,10.006,0,0,1,0,.1C0,.07.02.03.02,0A31.893,31.893,0,0,0,3.75.84,33.548,33.548,0,0,0,4.59,4.57Z"
-                                        transform="translate(175.06 268.34)" fill="rgba(237,27,36,0.4)" />
-                                    <path id="Vector-2" data-name="Vector"
-                                        d="M4.65.11A10.093,10.093,0,0,1,0,4.68,30.563,30.563,0,0,0,.91.84,31.281,31.281,0,0,0,4.63,0C4.62.04,4.65.08,4.65.11Z"
-                                        transform="translate(188.29 268.34)" fill="rgba(237,27,36,0.4)" />
-                                    <path id="Vector-3" data-name="Vector"
-                                        d="M4.73,4.73A31.643,31.643,0,0,0,.91,3.82,27.914,27.914,0,0,0,0,0,10.052,10.052,0,0,1,4.73,4.73Z"
-                                        transform="translate(188.29 254.98)" fill="rgba(237,27,36,0.4)" />
-                                    <path id="Vector-4" data-name="Vector"
-                                        d="M4.67.03a31.248,31.248,0,0,0-.83,3.72A28.87,28.87,0,0,0,0,4.65,10.093,10.093,0,0,1,4.57,0C4.6,0,4.64.03,4.67.03Z"
-                                        transform="translate(174.98 255.06)" fill="rgba(237,27,36,0.4)" />
-                                    <path id="Vector-5" data-name="Vector"
-                                        d="M6.98,4.59A31.328,31.328,0,0,0,0,4.59,28.373,28.373,0,0,1,1.02.53,1.635,1.635,0,0,0,1.04.31,10.406,10.406,0,0,1,3.49,0,10.322,10.322,0,0,1,5.93.31a1.66,1.66,0,0,0,.03.22A28.712,28.712,0,0,1,6.98,4.59Z"
-                                        transform="translate(180.51 254)" fill="#be1e2d" />
-                                    <path id="Vector-6" data-name="Vector"
-                                        d="M4.59,6.98A28.043,28.043,0,0,1,.53,5.96a1.635,1.635,0,0,0-.22-.02A10.406,10.406,0,0,1,0,3.49,10.322,10.322,0,0,1,.31,1.05a1.66,1.66,0,0,0,.22-.03A29.77,29.77,0,0,1,4.59,0,32.574,32.574,0,0,0,4.59,6.98Z"
-                                        transform="translate(174 260.51)" fill="#be1e2d" />
-                                    <path id="Vector-7" data-name="Vector"
-                                        d="M4.59,3.49a10.406,10.406,0,0,1-.31,2.45,1.635,1.635,0,0,0-.22.02A30.143,30.143,0,0,1,0,6.98,31.329,31.329,0,0,0,0,0,28.373,28.373,0,0,1,4.06,1.02a.833.833,0,0,0,.22.03A10.389,10.389,0,0,1,4.59,3.49Z"
-                                        transform="translate(189.41 260.51)" fill="#be1e2d" />
-                                    <path id="Vector-8" data-name="Vector"
-                                        d="M6.98,0A28.043,28.043,0,0,1,5.96,4.06a1.66,1.66,0,0,0-.03.22,10.322,10.322,0,0,1-2.44.31,10.406,10.406,0,0,1-2.45-.31,1.635,1.635,0,0,0-.02-.22A29.77,29.77,0,0,1,0,0,31.29,31.29,0,0,0,3.49.22,31.14,31.14,0,0,0,6.98,0Z"
-                                        transform="translate(180.51 269.41)" fill="#be1e2d" />
-                                    <path id="Vector-9" data-name="Vector"
-                                        d="M7.763,7.763a30.039,30.039,0,0,1-7.527,0,30.039,30.039,0,0,1,0-7.527,30.039,30.039,0,0,1,7.527,0A30.039,30.039,0,0,1,7.763,7.763Z"
-                                        transform="translate(180 260)" fill="#be1e2d" />
-                                </g>
-                            </g>
-                        </svg>
-                    </span>
-
-                </a>
-            </div>
-        </div>
-    </aside>
-
-    <div class="side-overlay"></div>
-    <!-- Side Menu -->
-
-    <!-- Main header -->
+<!-- Main header -->
     <header class="main-header fixed-top">
 
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
                 <a href="index.html" class="logo">
-                    <img src="{{asset('frontend/images/logo.svg') }}" alt="" srcset="" loading="lazy">
+                    <img src="assets/images/logo.svg" alt="" srcset="" loading="lazy">
                 </a>
                 <nav class="navbar navbar-expand-lg">
                     <ul class="navbar-nav">
@@ -197,13 +21,13 @@
                             <div class="cs-dropdown">
                                 <div class="dropdown">
                                     <button class="btn dropdown-toggle" type="button" id="achievements" data-bs-toggle="dropdown" aria-expanded="false">
-                                        الخدمات الصحية
+                                            دمات الصحية
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="achievements">
-                                      <li><a class="dropdown-item" href="service-details.html">التأمين الصحي</a></li>
-                                      <li><a class="dropdown-item" href="service-details.html">الاستشارات القانونية</a></li>
+                                    <li><a class="dropdown-item" href="service-details.html">التأمين الصحي</a></li>
+                                    <li><a class="dropdown-item" href="service-details.html">الاستشارات القانونية</a></li>
                                     </ul>
-                                  </div>
+                                </div>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -232,13 +56,12 @@
                                 VIP
                             </a>
                         </li>
-
+                    
                     </ul>
                 </nav>
                 <div class="d-flex align-items-center gap-2">
-                    <a href="{{route('loginUesr.index')}}" class="btn cs-btn v2">الدخول</a>
+                    <a href="login.html" class="btn cs-btn v2">الدخول</a>
                     <div class="lang d-flex align-items-center">
-                        <!-- <a href="#"> -->
                         <div class="cs-dropdown">
                             <div class="dropdown">
                                 <button class="btn dropdown-toggle" type="button" id="language"
@@ -351,7 +174,7 @@
                                                             transform="translate(-12.247 -10.729)" fill="#fff" />
                                                     </g>
                                                 </svg>
-
+    
                                             </span>
                                             AR
                                         </a>
@@ -476,286 +299,325 @@
                                     <path id="Vector-10" data-name="Vector" d="M0,0H24V24H0Z" fill="none" opacity="0" />
                                 </g>
                             </svg>
-
                         </span>
-
-                        <!-- </a> -->
                     </div>
                     <button type="button" class="navbar-toggler btn" id="openMenu">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
-
+            
             </div>
         </div>
 
     </header>
-    <!-- Main header -->
+<!-- Main header -->
 
-    <div class="body-content">
-     @yield('content')
-    </div>
-
-
-    <footer class="main-footer" id="footer">
-        <div class="container">
-            <div class="f-top">
-                <div class="row justify-content-md-start justify-content-center">
-                    <div class="col-lg-5 col-md-12 mb-3 mb-md-0">
-                        <figure>
-                            <img src="{{ asset('frontend/images/logo.svg') }}" alt="" srcset="">
-                        </figure>
-                       <p>
-                        رايت جايد هي منصة دولية للبحث عن أفضل المستشفيات
-                        .والأخصائيين المتميزين في تركيا لتقديم أفضل خدمة لك
-                       </p>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="f-widget">
-                            <h3 class="title">المنصة</h3>
-                            <ul>
-                                <li><a href="{{ route('home') }}">الرئيسية</a></li>
-                                <li><a href="">المستشفيات</a></li>
-                                <li><a href="">الأخصائيين</a></li>
-                                <li><a href="">المدونة</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="f-widget">
-                            <h3 class="title">روابط مهمة</h3>
-                            <ul>
-                                <li><a href="about-us.html">من نحن</a></li>
-                                <li><a href="contact-us.html">تواصل معنا</a></li>
-                                <li><a href="policies.html">الشروط والأحكام</a></li>
-                                <li><a href="privacy.html">سياسة الخصوصية</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="f-widget">
-                            <h3 class="title">خدمات صحية</h3>
-                            <ul>
-                                <li><a href="service-details.html"> التأمين الصحي</a></li>
-                                <li><a href="service-details.html">الاستشارات القانونية</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="f-bottom d-flex align-items-center justify-content-md-between justify-content-center flex-wrap">
-                <p class="f-copyright">
-                    جميع الحقوق محفوظة لوزارة شؤون المرأة © 2022
-                </p>
-
-                <div class="f-social">
-                    <a href="http://" class="when-hover" target="_blank" rel="noopener noreferrer">
-                        <span class="before-hover">
-                            <svg id="Group_16" data-name="Group 16" xmlns="http://www.w3.org/2000/svg"
-                                width="32" height="31.997" viewBox="0 0 32 31.997">
-                                <path id="Vector"
-                                    d="M7.913,29.8A16.012,16.012,0,0,0,16.008,32,16.241,16.241,0,0,0,31.974,15.055,16,16,0,1,0,2.138,24l-1.424,5.3a1.594,1.594,0,0,0,1.968,1.952Z"
-                                    transform="translate(0 0)" fill="#e2e2e2" />
-                                <g id="Group" transform="translate(7.991 7.95)">
-                                    <path id="Vector-2" data-name="Vector"
-                                        d="M16.034,13.131a1.974,1.974,0,0,1-.208.882,3.825,3.825,0,0,1-.545.818,3.654,3.654,0,0,1-1.315.946,3.924,3.924,0,0,1-1.571.3,6.53,6.53,0,0,1-2.613-.593A14.685,14.685,0,0,1,7.023,13.9a23.168,23.168,0,0,1-2.63-2.245,22.929,22.929,0,0,1-2.245-2.63A14.106,14.106,0,0,1,.577,6.285,6.789,6.789,0,0,1,0,3.656,4.189,4.189,0,0,1,.289,2.1,3.58,3.58,0,0,1,1.219.754,2.317,2.317,0,0,1,2.886,0a1.569,1.569,0,0,1,.657.144,1.328,1.328,0,0,1,.545.449L5.932,3.239a2.588,2.588,0,0,1,.321.561,1.17,1.17,0,0,1,.112.5,1.15,1.15,0,0,1-.176.577,2.821,2.821,0,0,1-.449.577l-.609.641A.412.412,0,0,0,5,6.413a.8.8,0,0,0,.032.192,1.1,1.1,0,0,1,.064.16,6.429,6.429,0,0,0,.754,1.026c.369.417.754.85,1.17,1.267.433.433.85.818,1.283,1.186a6.156,6.156,0,0,0,1.042.738c.048.016.1.048.144.064a.526.526,0,0,0,.545-.112l.609-.609a2.576,2.576,0,0,1,.577-.449A1.1,1.1,0,0,1,11.8,9.7a1.17,1.17,0,0,1,.5.112,2.919,2.919,0,0,1,.561.321l2.662,1.892a1.354,1.354,0,0,1,.449.513A5.608,5.608,0,0,1,16.034,13.131Z"
-                                        fill="#727a83" />
+<div class="body-content hospitals-page">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">
+                        <span class="px-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20.02" height="19.998"
+                                viewBox="0 0 20.02 19.998">
+                                <g id="vuesax_bulk_home-2" data-name="vuesax/bulk/home-2"
+                                    transform="translate(-621.99 -190.002)">
+                                    <g id="home-2">
+                                        <path id="Vector"
+                                            d="M18.05,4.818,12.29.788A4.853,4.853,0,0,0,6.8.918L1.79,4.828A5.153,5.153,0,0,0,0,8.468v6.9A4.631,4.631,0,0,0,4.62,20H15.4a4.622,4.622,0,0,0,4.62-4.62V8.6A5.1,5.1,0,0,0,18.05,4.818Z"
+                                            transform="translate(621.99 190.002)" fill="#e2e2e2" />
+                                        <path id="Vector-2" data-name="Vector"
+                                            d="M.75,4.5A.755.755,0,0,1,0,3.75v-3A.755.755,0,0,1,.75,0,.755.755,0,0,1,1.5.75v3A.755.755,0,0,1,.75,4.5Z"
+                                            transform="translate(631.25 202.25)" fill="#05060f" />
+                                    </g>
                                 </g>
                             </svg>
                         </span>
-                        <span class="after-hover">
-                            <svg id="Group_16" data-name="Group 16" xmlns="http://www.w3.org/2000/svg"
-                                width="32" height="31.997" viewBox="0 0 32 31.997">
-                                <path id="Vector"
-                                    d="M7.913,29.8A16.012,16.012,0,0,0,16.008,32,16.241,16.241,0,0,0,31.974,15.055,16,16,0,1,0,2.138,24l-1.424,5.3a1.594,1.594,0,0,0,1.968,1.952Z"
-                                    transform="translate(0 0)" fill="#e2fee7" />
-                                <g id="Group" transform="translate(7.991 7.95)">
-                                    <path id="Vector-2" data-name="Vector"
-                                        d="M16.034,13.131a1.974,1.974,0,0,1-.208.882,3.825,3.825,0,0,1-.545.818,3.654,3.654,0,0,1-1.315.946,3.924,3.924,0,0,1-1.571.3,6.53,6.53,0,0,1-2.613-.593A14.685,14.685,0,0,1,7.023,13.9a23.168,23.168,0,0,1-2.63-2.245,22.929,22.929,0,0,1-2.245-2.63A14.106,14.106,0,0,1,.577,6.285,6.789,6.789,0,0,1,0,3.656,4.189,4.189,0,0,1,.289,2.1,3.58,3.58,0,0,1,1.219.754,2.317,2.317,0,0,1,2.886,0a1.569,1.569,0,0,1,.657.144,1.328,1.328,0,0,1,.545.449L5.932,3.239a2.588,2.588,0,0,1,.321.561,1.17,1.17,0,0,1,.112.5,1.15,1.15,0,0,1-.176.577,2.821,2.821,0,0,1-.449.577l-.609.641A.412.412,0,0,0,5,6.413a.8.8,0,0,0,.032.192,1.1,1.1,0,0,1,.064.16,6.429,6.429,0,0,0,.754,1.026c.369.417.754.85,1.17,1.267.433.433.85.818,1.283,1.186a6.156,6.156,0,0,0,1.042.738c.048.016.1.048.144.064a.526.526,0,0,0,.545-.112l.609-.609a2.576,2.576,0,0,1,.577-.449A1.1,1.1,0,0,1,11.8,9.7a1.17,1.17,0,0,1,.5.112,2.919,2.919,0,0,1,.561.321l2.662,1.892a1.354,1.354,0,0,1,.449.513A5.608,5.608,0,0,1,16.034,13.131Z"
-                                        fill="#28d146" />
-                                </g>
-                            </svg>
-                        </span>
+                        <span>الرئيسية</span>
                     </a>
-                    <a href="http://" class="when-hover" target="_blank" rel="noopener noreferrer">
-                        <span class="before-hover">
-                            <svg id="Component_858_32" data-name="Component 858 – 32"
-                                xmlns="http://www.w3.org/2000/svg" width="32" height="32.402"
-                                viewBox="0 0 32 32.402">
-                                <path id="Path_41468" data-name="Path 41468"
-                                    d="M16,0A16,16,0,1,1,0,16,16,16,0,0,1,16,0Z" fill="#e2e2e2" />
-                                <path id="Path_77" data-name="Path 77"
-                                    d="M13.674,31.3a.78.78,0,0,0,.81-.791V18.347h3.242a1.621,1.621,0,1,0,0-3.242H14.484V11.863a1.621,1.621,0,0,1,1.621-1.621h1.621a1.621,1.621,0,1,0,0-3.242H16.105a4.863,4.863,0,0,0-4.863,4.863v3.242H9.621a1.621,1.621,0,1,0,0,3.242h1.621V30.329a.783.783,0,0,0,.652.781A16.274,16.274,0,0,0,13.674,31.3Z"
-                                    transform="translate(1.727 1.105)" fill="#727a83" />
-                            </svg>
-                        </span>
-                        <span class="after-hover">
-                            <svg id="Component_858_32" data-name="Component 858 – 32"
-                                xmlns="http://www.w3.org/2000/svg" width="32" height="32.402"
-                                viewBox="0 0 32 32.402">
-                                <path id="Path_41468" data-name="Path 41468"
-                                    d="M16,0A16,16,0,1,1,0,16,16,16,0,0,1,16,0Z" fill="#dff2ff" />
-                                <path id="Path_77" data-name="Path 77"
-                                    d="M13.674,31.3a.78.78,0,0,0,.81-.791V18.347h3.242a1.621,1.621,0,1,0,0-3.242H14.484V11.863a1.621,1.621,0,0,1,1.621-1.621h1.621a1.621,1.621,0,1,0,0-3.242H16.105a4.863,4.863,0,0,0-4.863,4.863v3.242H9.621a1.621,1.621,0,1,0,0,3.242h1.621V30.329a.783.783,0,0,0,.652.781A16.274,16.274,0,0,0,13.674,31.3Z"
-                                    transform="translate(1.727 1.105)" fill="#1877f2" />
-                            </svg>
-                        </span>
-                    </a>
+                </li>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="6.811" height="12.121"
+                        viewBox="0 0 6.811 12.121">
+                        <path id="Arrow_-_Right" data-name="Arrow - Right" d="M10,0,5,5,0,0"
+                            transform="translate(5.75 1.061) rotate(90)" fill="none" stroke="#727a83"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+                    </svg>
 
-                    <a href="http://" class="when-hover" target="_blank" rel="noopener noreferrer">
-                        <span class="before-hover">
-                            <svg id="Component_859_26" data-name="Component 859 – 26"
-                                xmlns="http://www.w3.org/2000/svg" width="32" height="28.193"
-                                viewBox="0 0 32 28.193">
-                                <path id="Path_109" data-name="Path 109"
-                                    d="M31.74,10.048c.783,11.747-7.831,21.145-18.8,21.145A24.965,24.965,0,0,1,2.425,29.267a.674.674,0,0,1,.338-1.28c3.65-.242,6.67-1.113,8.616-3.059,4.7-4.7,5.482-6.265,6.68-12.493A7.05,7.05,0,0,1,30.449,5.981l2.69-.384a.783.783,0,0,1,.762,1.21Z"
-                                    transform="translate(-2.034 -3)" fill="#e2e2e2" />
-                                <path id="Path_110" data-name="Path 110"
-                                    d="M11.234,23.964C2.753,21.137,1.29,10.653,2.813,5.185a.727.727,0,0,1,1.35-.07c2.6,4.449,7.549,6.933,13.749,6.36C27.676,11.475,25.327,28.662,11.234,23.964Z"
-                                    transform="translate(-1.893 -2.043)" fill="#727a83" />
-                            </svg>
-                        </span>
-                        <span class="after-hover">
-                            <svg id="Component_859_26" data-name="Component 859 – 26"
-                                xmlns="http://www.w3.org/2000/svg" width="32" height="28.193"
-                                viewBox="0 0 32 28.193">
-                                <path id="Path_109" data-name="Path 109"
-                                    d="M31.74,10.048c.783,11.747-7.831,21.145-18.8,21.145A24.965,24.965,0,0,1,2.425,29.267a.674.674,0,0,1,.338-1.28c3.65-.242,6.67-1.113,8.616-3.059,4.7-4.7,5.482-6.265,6.68-12.493A7.05,7.05,0,0,1,30.449,5.981l2.69-.384a.783.783,0,0,1,.762,1.21Z"
-                                    transform="translate(-2.034 -3)" fill="#dcf6ff" />
-                                <path id="Path_110" data-name="Path 110"
-                                    d="M11.234,23.964C2.753,21.137,1.29,10.653,2.813,5.185a.727.727,0,0,1,1.35-.07c2.6,4.449,7.549,6.933,13.749,6.36C27.676,11.475,25.327,28.662,11.234,23.964Z"
-                                    transform="translate(-1.893 -2.043)" fill="#1d9bf0" />
-                            </svg>
-                        </span>
-                    </a>
-
-                    <a href="http://" class="when-hover" target="_blank" rel="noopener noreferrer">
-                        <span class="before-hover">
-                            <svg id="Component_860_23" data-name="Component 860 – 23"
-                                xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-                                <circle id="Ellipse_11616" data-name="Ellipse 11616" cx="5.344" cy="5.344"
-                                    r="5.344" transform="translate(10.656 10.123)" fill="#e2e2e2" />
-                                <path id="Path_84" data-name="Path 84"
-                                    d="M10,2a8,8,0,0,0-8,8V26a8,8,0,0,0,8,8H26a8,8,0,0,0,8-8V10a8,8,0,0,0-8-8Zm8,20.8A4.8,4.8,0,1,0,13.2,18,4.8,4.8,0,0,0,18,22.8Z"
-                                    transform="translate(-2 -2)" fill="#e2e2e2" fill-rule="evenodd" />
-                                <path id="Path_85" data-name="Path 85"
-                                    d="M18.6,8.206A1.6,1.6,0,1,0,17,6.6,1.6,1.6,0,0,0,18.6,8.206Z"
-                                    transform="translate(6.985 -0.191)" fill="#727a83" />
-                                <path id="Path_86" data-name="Path 86"
-                                    d="M23.031,15.015A8.015,8.015,0,1,1,15.015,7,8.015,8.015,0,0,1,23.031,15.015Zm-3.206,0a4.809,4.809,0,1,1-4.809-4.809A4.809,4.809,0,0,1,19.825,15.015Z"
-                                    transform="translate(0.985 0.984)" fill="#727a83" fill-rule="evenodd" />
-                            </svg>
-
-                        </span>
-                        <span class="after-hover">
-                            <svg id="Component_860_23" data-name="Component 860 – 23"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="32" height="32" viewBox="0 0 32 32">
-                                <defs>
-                                    <linearGradient id="linear-gradient" x1="0.146" y1="0.854" x2="0.854"
-                                        y2="0.146" gradientUnits="objectBoundingBox">
-                                        <stop offset="0" stop-color="#f30072" />
-                                        <stop offset="1" stop-color="#e50097" />
-                                    </linearGradient>
-                                    <linearGradient id="linear-gradient-2" x1="0.146" y1="0.854" x2="0.854"
-                                        y2="0.146" gradientUnits="objectBoundingBox">
-                                        <stop offset="0" stop-color="#ff6400" />
-                                        <stop offset="0.5" stop-color="#ff0100" />
-                                        <stop offset="1" stop-color="#fd0056" />
-                                    </linearGradient>
-                                </defs>
-                                <g id="Group_62851" data-name="Group 62851"
-                                    transform="translate(-1137.999 -1949.309)">
-                                    <path id="Path_84" data-name="Path 84"
-                                        d="M10,2a8,8,0,0,0-8,8V26a8,8,0,0,0,8,8H26a8,8,0,0,0,8-8V10a8,8,0,0,0-8-8Zm8,20.8A4.8,4.8,0,1,0,13.2,18,4.8,4.8,0,0,0,18,22.8Z"
-                                        transform="translate(1135.999 1947.309)" fill="#ffe2e1"
-                                        fill-rule="evenodd" />
-                                    <circle id="Ellipse_11616" data-name="Ellipse 11616" cx="6" cy="6" r="6"
-                                        transform="translate(1148 1959.107)" fill="#ffe2e1" />
-                                    <path id="Path_41470" data-name="Path 41470"
-                                        d="M365.1,90.213a1.588,1.588,0,1,1-1.588-1.588A1.588,1.588,0,0,1,365.1,90.213Zm0,0"
-                                        transform="translate(800.084 1865.492)" fill="url(#linear-gradient)" />
-                                    <path id="Path_41471" data-name="Path 41471"
-                                        d="M132.554,124.539a8.015,8.015,0,1,0,8.016,8.015A8.015,8.015,0,0,0,132.554,124.539Zm0,13.218a5.2,5.2,0,1,1,5.2-5.2A5.2,5.2,0,0,1,132.554,137.757Zm0,0"
-                                        transform="translate(1021.441 1832.758)"
-                                        fill="url(#linear-gradient-2)" />
-                                </g>
-                            </svg>
-                        </span>
-                    </a>
-                    <a href="http://" class="when-hover" target="_blank" rel="noopener noreferrer">
-                        <span class="before-hover">
-                            <svg id="Component_862_28" data-name="Component 862 – 28"
-                                xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-                                <path id="Path_87" data-name="Path 87"
-                                    d="M2,6.8A4.8,4.8,0,0,1,6.8,2H29.2A4.8,4.8,0,0,1,34,6.8V29.2A4.8,4.8,0,0,1,29.2,34H6.8A4.8,4.8,0,0,1,2,29.2Z"
-                                    transform="translate(-2 -2)" fill="#e2e2e2" />
-                                <g id="Group_52916" data-name="Group 52916" transform="translate(6.338 6.337)">
-                                    <path id="Path_88" data-name="Path 88"
-                                        d="M7.614,9.228A1.614,1.614,0,1,0,6,7.614,1.614,1.614,0,0,0,7.614,9.228Z"
-                                        transform="translate(-6 -6)" fill="#727a83" />
-                                    <path id="Path_89" data-name="Path 89"
-                                        d="M7.614,10A1.614,1.614,0,0,0,6,11.614V21.3a1.614,1.614,0,1,0,3.228,0V11.614A1.614,1.614,0,0,0,7.614,10Z"
-                                        transform="translate(-6 -3.578)" fill="#727a83" />
-                                    <path id="Path_90" data-name="Path 90"
-                                        d="M16.456,13.228a3.228,3.228,0,0,0-3.228,3.228V21.3A1.614,1.614,0,1,1,10,21.3V11.614a1.614,1.614,0,0,1,3.085-.665,6.457,6.457,0,0,1,9.827,5.507V21.3a1.614,1.614,0,0,1-3.228,0V16.456A3.228,3.228,0,0,0,16.456,13.228Z"
-                                        transform="translate(-3.58 -3.578)" fill="#727a83" />
-                                </g>
-                            </svg>
-
-                        </span>
-                        <span class="after-hover">
-                            <svg id="Component_862_28" data-name="Component 862 – 28"
-                                xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-                                <path id="Path_87" data-name="Path 87"
-                                    d="M2,6.8A4.8,4.8,0,0,1,6.8,2H29.2A4.8,4.8,0,0,1,34,6.8V29.2A4.8,4.8,0,0,1,29.2,34H6.8A4.8,4.8,0,0,1,2,29.2Z"
-                                    transform="translate(-2 -2)" fill="#e0f3ff" />
-                                <g id="Group_52916" data-name="Group 52916" transform="translate(6.338 6.337)">
-                                    <path id="Path_88" data-name="Path 88"
-                                        d="M7.614,9.228A1.614,1.614,0,1,0,6,7.614,1.614,1.614,0,0,0,7.614,9.228Z"
-                                        transform="translate(-6 -6)" fill="#0a66c2" />
-                                    <path id="Path_89" data-name="Path 89"
-                                        d="M7.614,10A1.614,1.614,0,0,0,6,11.614V21.3a1.614,1.614,0,1,0,3.228,0V11.614A1.614,1.614,0,0,0,7.614,10Z"
-                                        transform="translate(-6 -3.578)" fill="#0a66c2" />
-                                    <path id="Path_90" data-name="Path 90"
-                                        d="M16.456,13.228a3.228,3.228,0,0,0-3.228,3.228V21.3A1.614,1.614,0,1,1,10,21.3V11.614a1.614,1.614,0,0,1,3.085-.665,6.457,6.457,0,0,1,9.827,5.507V21.3a1.614,1.614,0,0,1-3.228,0V16.456A3.228,3.228,0,0,0,16.456,13.228Z"
-                                        transform="translate(-3.58 -3.578)" fill="#0a66c2" />
-                                </g>
-                            </svg>
-
-                        </span>
-                    </a>
-                </div>
-            </div>
-            <!-- <span class="scroll-to-top">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14.904" height="9.578" viewBox="0 0 14.904 9.578">
-                    <path id="Path_382" data-name="Path 382"
-                        d="M9.678,9.292a1.065,1.065,0,0,0,1.5-.053l3.44-3.726a1.071,1.071,0,0,0,0-1.448L11.182.339A1.066,1.066,0,0,0,9.617,1.787l1.791,1.937H1.065a1.065,1.065,0,1,0,0,2.129H11.408L9.617,7.791A1.061,1.061,0,0,0,9.678,9.292Z"
-                        transform="translate(0 0)" fill="currentColor" fill-rule="evenodd" />
-                </svg>
-            </span> -->
+                </span>
+                <li class="breadcrumb-item active" aria-current="page">المستشفيات</li>
+            </ol>
+        </nav>
+        <div class="main-title">
+            <h2>مستشفيات ذات جودة عالية</h2>
         </div>
-    </footer>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{{ asset('frontend/js/jquery.min.js') }}"></script>
-    <!-- <script src="assets/js/popper.min.js"></script> -->
-    <!-- <script src="assets/js/bootstrap.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <script src="{{ asset('frontend/plugins/owlslider/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('frontend/plugins/fancybox/jquery.fancybox.min.js') }}"></script>
-    <script src="{{ asset('frontend/plugins/animate/wow.min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.8.1/lottie_svg.min.js"
-        integrity="sha512-jk2H6cbspEVLyLHIJkHcwiHqh7sQuyrBJvHKokFyKebzaRZiA7RmcbAo7KvM3GqFaLJJGDFC/gBMYzbeeS7KUw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="{{ asset('frontend/js/main.js') }}"></script>
-    <script>
-
-    </script>
-    <!-- <script src="assets/js/scripts.js"></script> -->
-    <!-- <script src="assets/js/scripts-en.js"></script> -->
-</body>
-
-</html>
+    </div>
+    <div class="hospitals-filter">
+        <div class="container">
+            <div class="content">
+                <div class="d-flex justify-content-between">
+                    <h3>عوامل الفلترة</h3>
+                    <a href="#" class="clear-all">امسح الكل</a>
+                </div>
+                <div class="form">
+                    <form action="#" method="get">
+                        <div class="row row align-items-end">
+                            <div class="col-lg-auto col-md-6">
+                                <div class="form-group">
+                                    <label for="">المستشفى</label>
+                                    <div class="cs-search-input mt-1">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20.003" height="20"
+                                                viewBox="0 0 20.003 20">
+                                                <g id="search-normal" transform="translate(-430 -190)">
+                                                    <path id="Vector"
+                                                        d="M19,9.5A9.5,9.5,0,1,1,9.5,0,9.5,9.5,0,0,1,19,9.5Z"
+                                                        transform="translate(430 190)" fill="#e2e2e2"></path>
+                                                    <path id="Vector-2" data-name="Vector"
+                                                        d="M2.552,3.252a.7.7,0,0,1-.49-.2L.2,1.192A.706.706,0,0,1,.2.2a.706.706,0,0,1,.99,0l1.86,1.86a.706.706,0,0,1,0,.99A.738.738,0,0,1,2.552,3.252Z"
+                                                        transform="translate(446.747 206.747)" fill="#05060f"></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                        <input type="text" class="form-control custom-input"
+                                            placeholder="ابحث عن مستشفى">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-auto col-md-6">
+                                <div class="form-group">
+                                    <label for="">التخصص الأساسي</label>
+                                    <div class="cs-search-input mt-1">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                                <g id="Stethoscope" transform="translate(-2 -2)">
+                                                  <path id="Path_808" data-name="Path 808" d="M8,12a1,1,0,0,1,1,1v2.495a4.49,4.49,0,1,0,8.981,0V14a1,1,0,1,1,2,0v1.5A6.486,6.486,0,1,1,7,15.493V13A1,1,0,0,1,8,12Z" transform="translate(0.032 0.021)" fill="#d3d3d8" fill-rule="evenodd"/>
+                                                  <path id="Path_809" data-name="Path 809" d="M4.661,4A.665.665,0,0,0,4,4.661V7.987a3.992,3.992,0,1,0,7.983,0V4.661A.665.665,0,0,0,11.313,4h-.333a1,1,0,1,1,0-2h.333a2.661,2.661,0,0,1,2.661,2.661V7.987A5.987,5.987,0,1,1,2,7.987V4.661A2.661,2.661,0,0,1,4.661,2h.333a1,1,0,0,1,0,2Z" transform="translate(0 0)" fill="#868692" fill-rule="evenodd"/>
+                                                  <path id="Path_810" data-name="Path 810" d="M18.994,12.992a1,1,0,1,0-1-1A1,1,0,0,0,18.994,12.992Zm0,2A2.994,2.994,0,1,0,16,11.994,2.994,2.994,0,0,0,18.994,14.987Z" transform="translate(0.013 0.006)" fill="#868692" fill-rule="evenodd"/>
+                                                </g>
+                                              </svg>                                                  
+                                        </span>
+                                        <select name="" id=""class="form-select custom-input">
+                                            <option value="">اختر التخصص</option>
+                                        </select>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-auto col-md-6">
+                                <div class="form-group">
+                                    <label for="">التخصص الفرعي</label>
+                                    <div class="cs-search-input mt-1">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                                <g id="Stethoscope" transform="translate(-2 -2)">
+                                                  <path id="Path_808" data-name="Path 808" d="M8,12a1,1,0,0,1,1,1v2.495a4.49,4.49,0,1,0,8.981,0V14a1,1,0,1,1,2,0v1.5A6.486,6.486,0,1,1,7,15.493V13A1,1,0,0,1,8,12Z" transform="translate(0.032 0.021)" fill="#d3d3d8" fill-rule="evenodd"/>
+                                                  <path id="Path_809" data-name="Path 809" d="M4.661,4A.665.665,0,0,0,4,4.661V7.987a3.992,3.992,0,1,0,7.983,0V4.661A.665.665,0,0,0,11.313,4h-.333a1,1,0,1,1,0-2h.333a2.661,2.661,0,0,1,2.661,2.661V7.987A5.987,5.987,0,1,1,2,7.987V4.661A2.661,2.661,0,0,1,4.661,2h.333a1,1,0,0,1,0,2Z" transform="translate(0 0)" fill="#868692" fill-rule="evenodd"/>
+                                                  <path id="Path_810" data-name="Path 810" d="M18.994,12.992a1,1,0,1,0-1-1A1,1,0,0,0,18.994,12.992Zm0,2A2.994,2.994,0,1,0,16,11.994,2.994,2.994,0,0,0,18.994,14.987Z" transform="translate(0.013 0.006)" fill="#868692" fill-rule="evenodd"/>
+                                                </g>
+                                              </svg>                                                  
+                                        </span>
+                                        <select name="" id=""class="form-select custom-input">
+                                            <option value="">اختر التخصص</option>
+                                        </select>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-auto col-md-6">
+                                <div class="form-group">
+                                    <label for="">التخصص الفرعي</label>
+                                    <div class="cs-search-input mt-1">
+                                        <span>
+                                            <svg id="vuesax_bulk_location" data-name="vuesax/bulk/location" xmlns="http://www.w3.org/2000/svg" width="17.75" height="20.5" viewBox="0 0 17.75 20.5">
+                                                <g id="location">
+                                                  <path id="Vector" d="M17.5,6.7A8.626,8.626,0,0,0,8.88,0H8.87A8.624,8.624,0,0,0,.25,6.69C-.92,11.85,2.24,16.22,5.1,18.97a5.422,5.422,0,0,0,7.55,0C15.51,16.22,18.67,11.86,17.5,6.7Z" fill="#d3d3d8"/>
+                                                  <path id="Vector-2" data-name="Vector" d="M6.3,3.15A3.15,3.15,0,1,1,3.15,0,3.15,3.15,0,0,1,6.3,3.15Z" transform="translate(5.73 5.41)" fill="#868692"/>
+                                                </g>
+                                              </svg>                                                                                            
+                                        </span>
+                                        <select name="" id=""class="form-select custom-input">
+                                            <option value="">اختر المدينة</option>
+                                        </select>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-auto col-md-6 me-lg-0 ms-lg-auto mx-auto mt-lg-0 mt-3">
+                                <button type="button" class="btn cs-btn v2">بحث</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="row mt-5">
+                @foreach ($hospitals as $hospital )
+                <div class="col-lg-auto col-md-6">
+                    <div class="hospital-media">   
+                        <figure class="main-img">
+                            <img src="{{Storage::url('hospitals/'.$hospital->cover)}}" alt="" srcset="">
+                        </figure>
+                        <div class="hospital-media-body">
+                            <div class="hospital-media-body_title">
+                                <figure>
+                                    <img src="" alt="" srcset="">
+                                </figure>
+                                <div>
+                                    <h2>{{$hospital->name}}</h2>
+                                    <div class="d-flex align-items-center">
+                                        <div class="rate">
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="21.63" height="20" viewBox="0 0 21.63 20">
+                                                    <g id="Star" transform="translate(-3.355 -2.05)">
+                                                      <path id="Path" d="M9.865.622a1.036,1.036,0,0,1,1.9,0L14.02,5.827a1.034,1.034,0,0,0,.87.619l5.783.445a1.029,1.029,0,0,1,.579,1.822L16.9,12.29a1.028,1.028,0,0,0-.346,1.042L17.9,18.719a1.033,1.033,0,0,1-1.529,1.135L11.34,16.907a1.038,1.038,0,0,0-1.05,0L5.263,19.854a1.033,1.033,0,0,1-1.529-1.135l1.339-5.387a1.028,1.028,0,0,0-.346-1.042L.377,8.713A1.029,1.029,0,0,1,.956,6.891L6.74,6.446a1.034,1.034,0,0,0,.87-.619Z" transform="translate(3.355 2.05)" fill="#ffc542"/>
+                                                    </g>
+                                                  </svg>  
+                                                  5.0                                                
+                                            </span>
+                                            <p class="mb-0">(55) تقييم</p>
+                                        </div>
+                                       <div class="address">
+                                            <span>
+                                                <svg id="vuesax_bulk_location" data-name="vuesax/bulk/location" xmlns="http://www.w3.org/2000/svg" width="17.75" height="20.5" viewBox="0 0 17.75 20.5">
+                                                    <g id="location">
+                                                    <path id="Vector" d="M17.5,6.7A8.626,8.626,0,0,0,8.88,0H8.87A8.624,8.624,0,0,0,.25,6.69C-.92,11.85,2.24,16.22,5.1,18.97a5.422,5.422,0,0,0,7.55,0C15.51,16.22,18.67,11.86,17.5,6.7Z" fill="#d3d3d8"/>
+                                                    <path id="Vector-2" data-name="Vector" d="M6.3,3.15A3.15,3.15,0,1,1,3.15,0,3.15,3.15,0,0,1,6.3,3.15Z" transform="translate(5.73 5.41)" fill="#868692"/>
+                                                    </g>
+                                                </svg>                                                  
+                                            </span>
+                                            <p class="mb-0">{{$hospital->location}}</p>
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hospital-media-body_description">
+                                {{ $hospital->info }}
+                            </div>
+                            <div class="hospital-media-body_footer">
+                              <div>
+                                    <div class="info">
+                                        <span class="me-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20.75" viewBox="0 0 18 20.75">
+                                                <g id="vuesax_bulk_calendar" data-name="vuesax/bulk/calendar" transform="translate(-495 -189.25)">
+                                                <g id="calendar">
+                                                    <path id="Vector" d="M13.711,2.31V.75a.75.75,0,0,0-1.5,0v1.5h-6.5V.75a.75.75,0,0,0-1.5,0V2.31A4.248,4.248,0,0,0,0,6.56a.5.5,0,0,0,.5.53h16.92a.5.5,0,0,0,.5-.53A4.248,4.248,0,0,0,13.711,2.31Z" transform="translate(495.039 189.25)" fill="#868692"/>
+                                                    <path id="Vector-2" data-name="Vector" d="M17,0a1,1,0,0,1,1,1V7.16c0,3-1.5,5-5,5H5c-3.5,0-5-2-5-5V1A1,1,0,0,1,1,0Z" transform="translate(495 197.84)" fill="#d3d3d8"/>
+                                                    <g id="Group">
+                                                    <path id="Vector-3" data-name="Vector" d="M1,2a1.052,1.052,0,0,1-.71-.29A1.052,1.052,0,0,1,0,1,1.052,1.052,0,0,1,.29.289,1,1,0,0,1,1.38.079a.933.933,0,0,1,.33.21A1.052,1.052,0,0,1,2,1a1.052,1.052,0,0,1-.29.71A1.052,1.052,0,0,1,1,2Z" transform="translate(499.5 201.001)" fill="#868692"/>
+                                                    </g>
+                                                    <g id="Group-2" data-name="Group">
+                                                    <path id="Vector-4" data-name="Vector" d="M1,2a1.052,1.052,0,0,1-.71-.29A1.052,1.052,0,0,1,0,1,1.052,1.052,0,0,1,.29.289.933.933,0,0,1,.62.079a1,1,0,0,1,1.09.21A1.052,1.052,0,0,1,2,1a1.052,1.052,0,0,1-.29.71l-.15.12a.757.757,0,0,1-.18.09.636.636,0,0,1-.18.06A1.355,1.355,0,0,1,1,2Z" transform="translate(503 201.001)" fill="#868692"/>
+                                                    </g>
+                                                    <g id="Group-3" data-name="Group">
+                                                    <path id="Vector-5" data-name="Vector" d="M1,2a1.052,1.052,0,0,1-.71-.29A1.052,1.052,0,0,1,0,1,1.052,1.052,0,0,1,.29.29,1.032,1.032,0,0,1,.62.08.956.956,0,0,1,1.2.02a.636.636,0,0,1,.18.06.757.757,0,0,1,.18.09l.15.12A1.052,1.052,0,0,1,2,1a1.052,1.052,0,0,1-.29.71l-.15.12a.757.757,0,0,1-.18.09.636.636,0,0,1-.18.06A1.5,1.5,0,0,1,1,2Z" transform="translate(506.5 201)" fill="#868692"/>
+                                                    </g>
+                                                    <g id="Group-4" data-name="Group">
+                                                    <path id="Vector-6" data-name="Vector" d="M1,2a1,1,0,0,1-.38-.08,1.032,1.032,0,0,1-.33-.21A1.052,1.052,0,0,1,0,1,1.052,1.052,0,0,1,.29.29,1.032,1.032,0,0,1,.62.08.956.956,0,0,1,1.2.02a.636.636,0,0,1,.18.06.757.757,0,0,1,.18.09l.15.12A1.052,1.052,0,0,1,2,1a1.052,1.052,0,0,1-.29.71,1.576,1.576,0,0,1-.15.12.757.757,0,0,1-.18.09.636.636,0,0,1-.18.06A1.355,1.355,0,0,1,1,2Z" transform="translate(499.5 204.5)" fill="#868692"/>
+                                                    </g>
+                                                    <g id="Group-5" data-name="Group">
+                                                    <path id="Vector-7" data-name="Vector" d="M1,1.987A1.052,1.052,0,0,1,.29,1.7,1.052,1.052,0,0,1,0,.987,1.052,1.052,0,0,1,.29.278a1.047,1.047,0,0,1,1.42,0A1.052,1.052,0,0,1,2,.987a1.052,1.052,0,0,1-.29.71A1.052,1.052,0,0,1,1,1.987Z" transform="translate(503 204.513)" fill="#868692"/>
+                                                    </g>
+                                                    <g id="Group-6" data-name="Group">
+                                                    <path id="Vector-8" data-name="Vector" d="M1,1.987A1.052,1.052,0,0,1,.29,1.7,1.052,1.052,0,0,1,0,.987,1.052,1.052,0,0,1,.29.278a1.047,1.047,0,0,1,1.42,0A1.052,1.052,0,0,1,2,.987a1.052,1.052,0,0,1-.29.71A1.052,1.052,0,0,1,1,1.987Z" transform="translate(506.5 204.513)" fill="#868692"/>
+                                                    </g>
+                                                </g>
+                                                </g>
+                                            </svg>
+                                            
+                                        </span>
+                                        <h6 class="me-1">سنة التأسيس: </h6>
+                                        <h5>{{ $hospital->created_at }}</h5>
+                                     </div>
+                                    <div class="info">
+                                    <span class="me-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="15.666" viewBox="0 0 24 15.666">
+                                            <g id="bed_1_" data-name="bed (1)" transform="translate(-1 -21.8)">
+                                            <path id="Path_42150" data-name="Path 42150" d="M23.5,36.166H8.177a3.648,3.648,0,0,1-2.585-1.083L3.508,32.995a1.638,1.638,0,0,0-.656-.387,1.187,1.187,0,0,0-.733,0,1.638,1.638,0,0,0-.656.387A1.386,1.386,0,0,0,1,34.078v4.68A1.55,1.55,0,0,0,2.543,40.3s3.241.039,3.473.039v2.669A1.08,1.08,0,0,0,7.1,44.094a1.105,1.105,0,0,0,1.08-1.083V40.343h10.3v2.669a1.08,1.08,0,0,0,1.08,1.083,1.105,1.105,0,0,0,1.08-1.083V40.343h2.894c.81,0,1.466-.773,1.466-2.088C24.923,37.133,24.305,36.166,23.5,36.166Z" transform="translate(0 -6.629)" fill="#d3d3d8"/>
+                                            <path id="Path_42151" data-name="Path 42151" d="M32.266,27.765a1.039,1.039,0,0,0-1.227.805l-.153.767a.783.783,0,0,1-.767.613H28.394a2.423,2.423,0,0,1-.805-.192,18.9,18.9,0,0,0-7.476-1.61h-.92a1.993,1.993,0,0,0,0,3.987H31.116a.568.568,0,0,0,.268-.038,1.874,1.874,0,0,0,1.035-.5l.038-.038.345-1.342.268-1.265c0-.077.038-.153.038-.23A1.143,1.143,0,0,0,32.266,27.765Z" transform="translate(-9.835 -3.664)" fill="#868692"/>
+                                            <circle id="Ellipse_11686" data-name="Ellipse 11686" cx="1.955" cy="1.955" r="1.955" transform="translate(3.454 21.8)" fill="#868692"/>
+                                            </g>
+                                        </svg>                                          
+                                    </span>
+                                    <h6 class="me-1">عدد الأسرة: </h6>
+                                    <h5>1400</h5>
+                                    </div>
+                                    <div class="info">
+                                        <span class="me-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                                <g id="Stethoscope" transform="translate(-2 -2)">
+                                                <path id="Path_808" data-name="Path 808" d="M8,12a1,1,0,0,1,1,1v2.495a4.49,4.49,0,1,0,8.981,0V14a1,1,0,1,1,2,0v1.5A6.486,6.486,0,1,1,7,15.493V13A1,1,0,0,1,8,12Z" transform="translate(0.032 0.021)" fill="#d3d3d8" fill-rule="evenodd"/>
+                                                <path id="Path_809" data-name="Path 809" d="M4.661,4A.665.665,0,0,0,4,4.661V7.987a3.992,3.992,0,1,0,7.983,0V4.661A.665.665,0,0,0,11.313,4h-.333a1,1,0,1,1,0-2h.333a2.661,2.661,0,0,1,2.661,2.661V7.987A5.987,5.987,0,1,1,2,7.987V4.661A2.661,2.661,0,0,1,4.661,2h.333a1,1,0,0,1,0,2Z" transform="translate(0 0)" fill="#868692" fill-rule="evenodd"/>
+                                                <path id="Path_810" data-name="Path 810" d="M18.994,12.992a1,1,0,1,0-1-1A1,1,0,0,0,18.994,12.992Zm0,2A2.994,2.994,0,1,0,16,11.994,2.994,2.994,0,0,0,18.994,14.987Z" transform="translate(0.013 0.006)" fill="#868692" fill-rule="evenodd"/>
+                                                </g>
+                                            </svg>                                                                             
+                                        </span>
+                                        <h6 class="me-1">عدد الأطباء: </h6>
+                                        <h5>50</h5>
+                                    </div>
+                              </div>
+                              <div class="d-flex flex-wrap gap-2 align-items-center flex-lg-grow-0 flex-grow-1">
+                                <a href="{{route('frontend.hospital',$hospital->id)}}#" class="btn cs-btn cs-w-h">عرض التفاصيل</a>
+                                <a href="#" class="btn cs-btn v2 cs-w-h">طلب عرض سعر</a>
+                              </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+             
+                   {{--  --}}
+                </div>
+                @endforeach
+              
+                
+                <div class="col-lg-12 ">
+                    <nav class="cs-pagination">
+                        <ul class="pagination">
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                              <span aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6.811" height="12.121" viewBox="0 0 6.811 12.121">
+                                    <path id="Arrow_-_Right" data-name="Arrow - Right" d="M10,5,5,0,0,5" transform="translate(6.061 1.061) rotate(90)" fill="none" stroke="#aeaeb1" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                  </svg>  
+                              </span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                          </li>
+                          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item"><a class="page-link" href="#">4</a></li>
+                          <li class="page-item"><a class="page-link" href="#">5</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                              <span aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6.811" height="12.121" viewBox="0 0 6.811 12.121">
+                                    <path id="Arrow_-_Right" data-name="Arrow - Right" d="M10,0,5,5,0,0" transform="translate(5.75 1.061) rotate(90)" fill="none" stroke="#05060f" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                  </svg>
+                                                                    
+                              </span>
+                              <span class="sr-only">Next</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                   </div>
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- contact-us-btn -->
+ <div class="contact-us-btn">
+    <a href="#">
+        <figure>
+            <img src="assets/images/contact-us-icon.svg" alt="" srcset="">
+        </figure>
+    </a>
+    <p>طلب مساعدة</p>
+</div>
+<!-- ./contact-us-btn -->
+@endsection

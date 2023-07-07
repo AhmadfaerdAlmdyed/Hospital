@@ -46,7 +46,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Enter phone</label>
-                        <input type="number" name="phone" class="form-control" id="exampleInputPassword1"
+                        <input type="text" name="phone" class="form-control" id="exampleInputPassword1"
                             placeholder="phone" value="{{ $doctor->phone }}">
                     </div>
                     <div class="form-group">

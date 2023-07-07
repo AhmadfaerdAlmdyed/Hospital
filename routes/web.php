@@ -8,6 +8,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\Log\LoginController;
+use App\Http\Controllers\Profail\ProfailController;
 use App\Http\Controllers\RolePermissionsController;
 use App\Models\Auth;
 use App\Models\Doctor;
@@ -34,17 +36,37 @@ Route::prefix('admin/')->middleware('auth')->group(function(){
      Route::get('change-password',[AuthController::class, 'changePassword'])->name('admin.change-password');
      Route::post('change-password',[AuthController::class, 'psotPassword'])->name('admin.post-change');
     });
-    
-    Route::post('login', [AuthController::class,'postLogin'])->name('login.post');
+    ////Admin
     Route::get('login', [AuthController::class, 'login'])->name('admin.login');
+    Route::post('login', [AuthController::class,'postLogin'])->name('login.post');
+    //////////////////
+    ////Uesr
+    Route::resource('loginUesr',LoginController::class);
+    Route::post('UesrLogin',[LoginController::class,'LoginUesr'])->name('Login.uesr');
+    Route::get('logoutUesr',[LoginController::class, 'logoutUesr'])->name('uesr.logout');
+    Route::get('change-password',[LoginController::class, 'changePassword'])->name('uesr.change-password');
+  //Route::post('change-password',[LoginController::class, 'psotPassword'])->name('uesr.post-change');
+    ///////////////
+    
+    Route::resource('profail',ProfailController::class);
+    ////////////////////
+    Route:: get('/',[FrontendController::class,'home'])->name('home');
+    Route:: get('/hospital/{id}',[FrontendController::class,'indexhospital'])->name('frontend.hospital');
+    Route:: get('/hospitals',[FrontendController::class,'hospitals'])->name('all.hospitel');
+    ///////////////
+    
+    Route::fallback(function(){
+        return view('error');
+    });
+// Route::group(['middleware' => ['role:admin']], function () {
+    
+// });
 
-// Route::prefix('admin/')->middleware('guest')->group(function () {
-//    });
- 
+// Route::group(['middleware' => ['role:user']], function () {
+    
+// });
 
-Route::fallback(function(){
-    return view('error');
-});
 
-/////////////////////
-Route:: get('/',[FrontendController::class,'home'])->name('home');
+/* Route::group(['middleware' => ['permission:publish articles|edit articles']], function () {
+    //
+}); */
