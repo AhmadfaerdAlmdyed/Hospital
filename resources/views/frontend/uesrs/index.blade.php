@@ -19,24 +19,21 @@
                   <td>
                     <div class="d-flex align-items-center gap-2">
                       <figure class="mb-0">
-                          <img src="assets/images/logo-hospital-1.png" alt="" srcset="">
-                      </figure>
-                          مستشفى استاتيك
-                          انترناشونال
+                          <img src="#" alt="" srcset="">
+                      </figure> 
                     </div>
                   </td>
-                  <td>‏12 أغسطس، 2022</td>
-                  <td>100200</td>
-                  <td>طب أسنان</td>
+                  <td></td> 
+                  <td></td>
+                  <td></td>
                   <td>
                       <div class="status bg-warning">
-                          قيد التقييم
                       </div>
                   </td>
                   <td>
                       <div class="d-flex gap-3">
                           <div class="cs-action">
-                              <a href="request-details.html">
+                              <a href="#">
                                   <svg id="vuesax_bulk_document-text" data-name="vuesax/bulk/document-text" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                       <g id="document-text" transform="translate(-492 -252)">
                                         <path id="Vector" d="M0,0H24V24H0Z" transform="translate(492 252)" fill="none" opacity="0"></path>

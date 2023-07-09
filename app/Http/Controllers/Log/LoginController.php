@@ -8,31 +8,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
-class LoginController extends Controller
+    class LoginController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
      return view('frontend.login&register.login');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('frontend.login&register.register');
     }
-    public function changePassword(){
-        return view('frontend.login&register.change_password');
-    }
-   
+    
     public function store(Request $request)
     {
         $request->validate([
@@ -42,6 +29,7 @@ class LoginController extends Controller
             'password'=>'required|string',
             'country'=>'required|string'
         ]);
+        
         $user=new User();
         $user->name=$request->get('name');
         $user->email=$request->get('email');
@@ -51,56 +39,47 @@ class LoginController extends Controller
          $seved= $user->save();
          if($seved){    
             session()->flash('massage','user cerated scssesfuly');
-           return redirect()->route('profail.index');
+           return redirect()->route('loginUesr.index');
         }
     }
-    public function LoginUesr(Request $request){
+    public function LoginUesr(Request $request)
+    {
         $request->validate([
             'email'=>'required|email|string',
             'password'=>'required|string',
-            'remember'=>'in:on',
+            'remember'=>'in:on', 
         ]);
-          $credentials=[
-            'email'=>$request->get('email'),
-            'password'=>$request->get('password'),
-          ];
-          if(Auth::guard('user')->attempt($credentials,true))
-          {
-            session()->flush('massage','loinged Successfully');
-            return redirect()->route('profail.index');
-          }
-         else{
-          return redirect()->back();
+
+        $credentials=[
+        'email'=>$request->get('email'),
+        'password'=>$request->get('password'),
+        ];  
+        
+        if(Auth::guard('user')->attempt($credentials,true))
+        {
+        session()->flush('massage','loinged Successfully');
+        $user = auth()->user();
+        return redirect()->route('profail.index');
+        }
+        else{
+        return redirect()->back();
         }
     }
     public function logoutUesr(Request $request)
     {
-    Auth::guard('user')->logout();
-    $request->session()->invalidate();
-    return redirect()->route('Login.uesr');
+        Auth::guard('user')->logout();
+        $request->session()->invalidate();
+        return redirect()->route('loginUesr.index');
     }
- 
 
-
-    
-    public function show($id)
+    public function changePassword()
     {
-        //
+        return view('frontend.login&register.change_password');
     }
 
-    public function edit($id)
-    {
-        //
-    }
+    // public function psotPassword(Request $request)
+    //{ 
+    //}
 
-    
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
-    public function destroy($id)
-    {
-        //
-    }
 }

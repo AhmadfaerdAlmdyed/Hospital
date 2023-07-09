@@ -14,11 +14,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable,HasRoles;
     
     protected $table ='users';
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+
     protected $fillable = [
         'name',
         'email',
@@ -45,11 +41,11 @@ class User extends Authenticatable
     ];
 
     // public function profile(){
-    //     return this->hasOne(Profile::class,'uesr_id','id')
+    //     return this->hasOne(Profile::class)
     // }
 
     // public function uesr(){
-    //     return this->belongsTo(User::class,'uesr_id','id')
+    //     return this->belongsTo(User::class)
     // }
 
 

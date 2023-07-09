@@ -51,7 +51,7 @@
             <nav class="scrollspy_menu">
                 <ul class="navbar-nav">
                     <li class="nav-item active underline_header_titles">
-                        <a class="nav-link" href="index.html">الرئيسية </a>
+                        <a class="nav-link" href="{{ route('home') }}">الرئيسية </a>
                     </li>
                     <li class="nav-item">
                         <div class="cs-dropdown">
@@ -191,7 +191,7 @@
                 <nav class="navbar navbar-expand-lg">
                     <ul class="navbar-nav">
                         <li class="nav-item active underline_header_titles">
-                            <a class="nav-link" href="index.html">الرئيسية </a>
+                            <a class="nav-link" href="{{ route('home') }}">الرئيسية </a>
                         </li>
                         <li class="nav-item">
                             <div class="cs-dropdown">
@@ -236,7 +236,13 @@
                     </ul>
                 </nav>
                 <div class="d-flex align-items-center gap-2">
+                    @if( Auth('user')->user())
+                    <a href="{{ route('profail.create') }}" class="openProfile">
+                        <img src="{{Storage::url('users/'.Auth('user')->user()->cover )}}" alt="img" srcset="">
+                    </a>
+                    @else
                     <a href="{{route('loginUesr.index')}}" class="btn cs-btn v2">الدخول</a>
+                    @endif
                     <div class="lang d-flex align-items-center">
                         <!-- <a href="#"> -->
                         <div class="cs-dropdown">

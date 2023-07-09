@@ -3,11 +3,10 @@
 <div class="body-content profile-page">
     <!--  breadcrumb -->
     <div class="container">
-
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="index.html">
+                    <a href="{{ route('home') }}">
                         <span class="px-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20.02" height="19.998"
                                 viewBox="0 0 20.02 19.998">
@@ -44,20 +43,20 @@
     <div class="container">
         <div class="content">
             <div class="row">
-
                 <div class="col-xl-3 col-lg-4">
                     <div class="profile-sidebar">
                         <div class="user-info">
                             <figure class="mb-0">
-                                <img src="assets/images/avatar.png" alt="" srcset="">
+                                <img src="{{Storage::url('users/'.$user ->cover )}}" >
                             </figure>
-                            <div>
-                                <h6>عبدالرحمن الشيخ محمد</h6>
-                                <h4>+90 554 864 60 20</h4>
+                            <div>  
+                                <h6>{{ $user->name }}</h6>
+                                <h4>{{ $user->phone }} </h4>
                             </div>
                         </div>
                         <ul>
-                            <li class="active">
+                            <li >
+                                {{-- index --}}
                                 <a href="{{ route('profail.create') }}">
                                     <span>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -82,7 +81,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                {{-- edit --}}
+                                <a href="{{ route('Data.Personal') }}">
                                     <span>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                             <g id="vuesax_bulk_profile" data-name="vuesax/bulk/profile" transform="translate(-108 -252)">

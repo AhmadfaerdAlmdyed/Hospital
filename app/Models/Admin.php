@@ -11,4 +11,6 @@ class Admin extends Authenticatable
 {
     use HasFactory,HasRoles;
     protected $table = 'admins';
+
+    
 }

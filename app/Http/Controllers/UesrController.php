@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Profail;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Controller;
-use App\Models\User;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\Return_;
+namespace App\Http\Controllers;
 
-class ProfailController extends Controller
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+
+class UesrController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +15,9 @@ class ProfailController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
-        $user = auth()->user();
-        return view('frontend.uesrs.layouts',compact('user'));
+    {
+        $data=User::all();
+        return view('admin.uesrs.index' ,compact('data'));
     }
 
     /**
@@ -28,18 +26,16 @@ class ProfailController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    { 
-        $user = auth()->user();
-        return view('frontend.uesrs.index',compact('user'));
+    {
+        //
     }
-  
-    public function PersonalData()
-    { 
-        $user = auth()->user();
-        return view('frontend.uesrs.edit',compact('user'));
-    }
-  
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         //
@@ -53,7 +49,7 @@ class ProfailController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**
@@ -63,8 +59,9 @@ class ProfailController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {    
-
+    {
+        $user=User::find($id);
+        return view('admin.uesrs.edit',compact('user'));
     }
 
     /**
@@ -76,22 +73,20 @@ class ProfailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $input = $request->input();
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
             'phone' => 'required|numeric|min:10',
-            'country' => 'required|string',
+            'cover' => 'image|nullable|mimes:jpg,png'
         ]);
+        
         $user = User::find($id);
-        $user->name = $input['name'];
-        $user->email = $input['email'];
-        $user->phone = $input['phone'];
-        if($input['password']){
-        $user->password = Hash::make($input['password']);
-        }
-        $user->country = $input['country'];
-        if ($request->hasFile('cover')) {
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->phone = $request->get('phone');
+        $user->password = Hash::make($request->get('password'));
+        $user->country = $request->get('country');
+        if ($request->has('cover')) {
             $img = $request->file('cover');
             $imgname = time() . $user->name.'.'.$img->getClientOriginalExtension();
             $request->file('cover')->storePubliclyAs('users/', $imgname, ['disk' => 'public']);
@@ -100,18 +95,26 @@ class ProfailController extends Controller
         $saved = $user->save();
         if ($saved) {
             $user = auth()->user();
-            return redirect()->route('profail.index');
+            return redirect()->route('uesrs.index');
         }
     }
-    
+
     /**
      * Remove the specified resource from storage.
-     *
+     *Storage
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        $item=User::find($id);
+        Storage::disk('public')->delete("doctors/$item->cover");
+      $deleted= $item->delete();
+       if($deleted) {
+          session()->flash('massage','Doctor deleted scssesfuly');
+          return redirect()->back();
+       }else{
+          return 'error';
+       }
     }
 }

@@ -247,7 +247,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
           @endcan
-        
+          
+          <li class="nav-item">
+            <a href="{{ route('uesrs.index')}}" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Uesrs
+                    <span class="right badge badge-danger">New</span>
+                </p>
+            </a>
+          </li>
+          
           @can('index-admins')
           <li class="nav-item">
             <a href="{{ route('admins.index')}}" class="nav-link">
@@ -259,6 +269,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           @endcan
+         
            @canany(['index-roles', 'index-permissions',])
               <span><h3>Roles&Permission</h3> </span> 
            @endcanany
