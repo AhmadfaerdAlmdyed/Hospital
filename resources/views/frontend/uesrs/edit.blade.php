@@ -107,7 +107,7 @@
                   </div>
                   <div class="col-lg-6">
                       <div class="mb-3">
-                          <label for="address" class="col-form-label">كلمة المرور:</label>
+                          <label for="address" class="col-form-label">تعديل كلمة المرور:</label>
                           <div class="icon-input">
                               <span class="icon-i">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -136,7 +136,7 @@
                   </div>
                   <div class="col-lg-6">
                     <div class="mb-3">
-                        <label for="address" class="col-form-label"> صورة </label>
+                        <label for="address" class="col-form-label">تعديل صورة </label>
                         <div class="icon-input">
                             <input name="cover"
                              type="file" class="form-control custom-input" placeholder="أدخل كلمة المرور">

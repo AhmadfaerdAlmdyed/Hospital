@@ -133,67 +133,30 @@
                     </div>
                 </div>
                 @yield('cont')
+                @isset($blogs)
               <div class="requests-section mt-4">
                 <h4 class="mb-5">مقالات مهمة</h4>
                 <div class="row">
+                    @foreach ($blogs as $blog)
                     <div class="col-xl-6">
-                        <a href="#">
-        
+                        <a href="{{ route('frontend.blogs',$blog->id) }}">
                             <div class="recently-article-card d-flex align-items-center">
                                 <figure class="mb-0">
-                                  <img src="assets/images/article-2.png" class="img-fluid" alt="...">
+                                  <img style="width: 100% ;height:100% ;"
+                                   src="{{Storage::url('blogs/'.$blog->cover)}}"
+                                   class="img-fluid" alt="...">
                                 </figure>
                                 <div class="flex-grow-1 ms-3">
-                                    <h4>‏20 يوليو، 2022 - أمراض القلب</h4>
-                                    <h2>الجلطة القلبية: وأعراض جلطة القلب وأسبابها وماذا بعد الإصابة </h2>
+                                    <h4>{{ $blog->major->name }}</h4>
+                                    <h2>{{ $blog->title }}</h2>
                                 </div>
                               </div>
                         </a>
                     </div>
-                    <div class="col-xl-6">
-                        <a href="#">
-        
-                            <div class="recently-article-card d-flex align-items-center">
-                                <figure class="mb-0">
-                                  <img src="assets/images/article-2.png" class="img-fluid" alt="...">
-                                </figure>
-                                <div class="flex-grow-1 ms-3">
-                                    <h4>‏20 يوليو، 2022 - أمراض القلب</h4>
-                                    <h2>الجلطة القلبية: وأعراض جلطة القلب وأسبابها وماذا بعد الإصابة </h2>
-                                </div>
-                              </div>
-                        </a>
-                    </div>
-                    <div class="col-xl-6">
-                        <a href="#">
-        
-                            <div class="recently-article-card d-flex align-items-center">
-                                <figure class="mb-0">
-                                  <img src="assets/images/article-2.png" class="img-fluid" alt="...">
-                                </figure>
-                                <div class="flex-grow-1 ms-3">
-                                    <h4>‏20 يوليو، 2022 - أمراض القلب</h4>
-                                    <h2>الجلطة القلبية: وأعراض جلطة القلب وأسبابها وماذا بعد الإصابة </h2>
-                                </div>
-                              </div>
-                        </a>
-                    </div>
-                    <div class="col-xl-6">
-                        <a href="#">
-        
-                            <div class="recently-article-card d-flex align-items-center">
-                                <figure class="mb-0">
-                                  <img src="assets/images/article-2.png" class="img-fluid" alt="...">
-                                </figure>
-                                <div class="flex-grow-1 ms-3">
-                                    <h4>‏20 يوليو، 2022 - أمراض القلب</h4>
-                                    <h2>الجلطة القلبية: وأعراض جلطة القلب وأسبابها وماذا بعد الإصابة </h2>
-                                </div>
-                              </div>
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
+            @endisset
             </div>
         </div>
     </div>

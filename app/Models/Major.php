@@ -14,4 +14,7 @@ class Major extends Model
     public function getActiveStatusAttribute(){
         return $this->is_active ? 'Active' :'Non Active';
     }
+    public function blogs(){
+        return $this->hasMany(Blog::class);
+    }
 }

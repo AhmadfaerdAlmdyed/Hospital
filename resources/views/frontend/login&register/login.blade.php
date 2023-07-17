@@ -44,7 +44,7 @@
     <header class="main-header fixed-top header-login-page">
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
-                <a href="index.html" class="logo">
+                <a href="{{ route('home') }}" class="logo">
                    <img src="{{ asset('frontend/images/logo.svg') }}" alt="" srcset="" loading="lazy">
                 </a>
              

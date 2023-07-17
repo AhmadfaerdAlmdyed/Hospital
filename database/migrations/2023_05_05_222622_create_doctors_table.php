@@ -21,7 +21,7 @@ class CreateDoctorsTable extends Migration
            $table->string('cover')->unique();
            $table->string('descrption')->nullable();
            $table->unsignedBigInteger('hospital_id')->nullable();
-           $table->foreign('hospital_id')->on('hosptials')->references('id');
+           $table->foreign('hosptial_id')->on('hosptials')->references('id');
             $table->timestamps();
         });
     }

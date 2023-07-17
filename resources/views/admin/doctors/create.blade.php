@@ -30,7 +30,7 @@
                   data-dropdown-css-class="select2-info"
                   style="width: 100%;"  data-select2-id="11"
                    tabindex="-1" aria-hidden="true"
-                   name="hospital_id">
+                   name="hosptial_id">
                      @foreach ($hospitals as $hospital)
                      <option
                       value="{{$hospital->id}}">{{$hospital->name}}

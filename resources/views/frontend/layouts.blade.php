@@ -39,7 +39,6 @@
         </div>
     </section>
     <!-- pre-loader -->
-
     <!-- Side Menu -->
     <aside class="side-menu">
         <div class="text-right">
@@ -68,7 +67,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact-us.html">تواصل معنا</a>
+                        <a class="nav-link" href="{{ route('frontend.messages') }}">تواصل معنا</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="btn cs-btn">
@@ -93,9 +92,7 @@
                             VIP
                         </a>
                     </li>
-                    <li>
-                        <a href="#" class="btn cs-btn v2">الدخول</a>
-                    </li>
+                   
                 </ul>
             </nav>
             <div class="lang d-lg-block d-none">
@@ -185,7 +182,7 @@
 
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
-                <a href="index.html" class="logo">
+                <a href="{{ route('home') }}" class="logo">
                     <img src="{{asset('frontend/images/logo.svg') }}" alt="" srcset="" loading="lazy">
                 </a>
                 <nav class="navbar navbar-expand-lg">
@@ -207,32 +204,9 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact-us.html">تواصل معنا</a>
+                            <a class="nav-link" href="{{ route('frontend.messages') }}">تواصل معنا</a> 
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="btn cs-btn">
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="26.605" height="24"
-                                        viewBox="0 0 26.605 24">
-                                        <g id="Group_63524" data-name="Group 63524" transform="translate(-371.4 -32)">
-                                            <g id="Pin_-_1" data-name="Pin - 1" transform="translate(375.232 32)">
-                                                <g id="Group_63492" data-name="Group 63492">
-                                                    <path id="Path_42105" data-name="Path 42105"
-                                                        d="M447.555,329.927a1.624,1.624,0,0,1-1.274-.613c-2.93-3.668-6.477-8.12-6.727-8.5-.109-.165-.214-.337-.313-.51a1.474,1.474,0,0,1,1.273-2.211h1.521a1.47,1.47,0,0,1,1.255.707,1.869,1.869,0,0,0,1.653.819h4.47a3.574,3.574,0,0,0,1.584-2.7,2,2,0,0,0-.364-1.416,1.191,1.191,0,0,0-.844-.325h-1.915a1.372,1.372,0,0,1-1.223-.6,1.418,1.418,0,0,1,0-1.412l.015-.03.378-.679a1.325,1.325,0,0,0,0-1.5l-2.308,3.422a1.809,1.809,0,0,1-1.5.8h-3.567a1.468,1.468,0,0,1-1.156-.559,1.451,1.451,0,0,1-.28-1.235,9.589,9.589,0,0,1,2.538-4.6l.048-.048a9.506,9.506,0,0,1,13.477,0l.048.048a9.607,9.607,0,0,1,1.24,12c-.038.059-.154.237-6.751,8.531a1.624,1.624,0,0,1-1.276.617Zm-7.041-10.418a.047.047,0,0,0-.047.026.06.06,0,0,0,0,.065c.084.147.174.293.267.434.19.282,2.739,3.5,6.65,8.4a.215.215,0,0,0,.169.081h0a.215.215,0,0,0,.171-.083c3.933-4.946,6.485-8.168,6.679-8.433a8.188,8.188,0,0,0-1.063-10.219l-.048-.048a8.092,8.092,0,0,0-11.473,0l-.048.049a8.174,8.174,0,0,0-2.162,3.925.034.034,0,0,0,.009.033.059.059,0,0,0,.048.024h3.567a.4.4,0,0,0,.328-.175l2.357-3.495a1.345,1.345,0,0,1,2.065-.2,2.644,2.644,0,0,1,.288,3.267l-.336.6h1.853a2.614,2.614,0,0,1,1.866.761,3.219,3.219,0,0,1,.756,2.457c-.1,2.345-2.089,4.059-2.9,4.059h-4.564a3.249,3.249,0,0,1-2.857-1.491.067.067,0,0,0-.052-.035Zm8.857.13Z"
-                                                        transform="translate(-438.194 -305.927)" fill="#ff9f2d" />
-                                                </g>
-                                            </g>
-                                            <path id="Path_42106" data-name="Path 42106"
-                                                d="M451.7,336.415l-.079.1a.059.059,0,0,0,.042.1c2.263.234,3.684.571,3.684.945,0,.7-5.044,1.274-11.264,1.274s-11.264-.571-11.264-1.274c0-.357,1.282-.678,3.347-.91a.06.06,0,0,0,.041-.1l-.078-.1a.059.059,0,0,0-.054-.023c-3.217.363-5.295.942-5.295,1.592,0,1.1,5.956,2,13.3,2s13.3-.893,13.3-2c0-.673-2.225-1.268-5.631-1.63A.061.061,0,0,0,451.7,336.415Z"
-                                                transform="translate(-59.379 -288.601)" fill="#00ce68" />
-                                        </g>
-                                    </svg>
-
-                                </span>
-                                VIP
-                            </a>
-                        </li>
-
+                        {{-- contact-us.html --}}
                     </ul>
                 </nav>
                 <div class="d-flex align-items-center gap-2">
@@ -521,32 +495,24 @@
                             <h3 class="title">المنصة</h3>
                             <ul>
                                 <li><a href="{{ route('home') }}">الرئيسية</a></li>
-                                <li><a href="">المستشفيات</a></li>
-                                <li><a href="">الأخصائيين</a></li>
-                                <li><a href="">المدونة</a></li>
+                                <li><a href="#">من نحن</a></li>
+                                <li><a href="{{ route('all.hospitel') }}">المستشفيات</a></li>
+                                <li><a href="{{ route('blogs') }}">المدونة</a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div>  
                     <div class="col-lg-2 col-md-4 col-6">
                         <div class="f-widget">
                             <h3 class="title">روابط مهمة</h3>
                             <ul>
-                                <li><a href="about-us.html">من نحن</a></li>
-                                <li><a href="contact-us.html">تواصل معنا</a></li>
-                                <li><a href="policies.html">الشروط والأحكام</a></li>
-                                <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                                <li><a href="{{ route('frontend.messages') }}">تواصل معنا</a></li>
+                                <li><a href="{{ route('index.conditions')  }}">الشروط والأحكام</a></li>
+                                <li><a href="#">سياسة الخصوصية</a></li>
+                                <li><a href="#">اسئلة شائعة</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-4 col-6">
-                        <div class="f-widget">
-                            <h3 class="title">خدمات صحية</h3>
-                            <ul>
-                                <li><a href="service-details.html"> التأمين الصحي</a></li>
-                                <li><a href="service-details.html">الاستشارات القانونية</a></li>
-                            </ul>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <div class="f-bottom d-flex align-items-center justify-content-md-between justify-content-center flex-wrap">

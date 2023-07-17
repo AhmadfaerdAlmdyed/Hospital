@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHosptialsTable extends Migration
+class CreateSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateHosptialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('hosptials', function (Blueprint $table) {
+        Schema::create('sections', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('location');
-            $table->text('info')->nullable();
-            $table->boolean('is_active');
-            $table->string('cover')->nullable();
-            $table->string('logo')->nullable();
+            $table->string('title');
+            $table->text('descrption');
+            $table->string('points');
+            $table->unsignedBigInteger('blogs_id')->nullable();
+            $table->foreign('blogs_id')->on('blogs')->references('id');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateHosptialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hosptials');
+        Schema::dropIfExists('sections');
     }
 }

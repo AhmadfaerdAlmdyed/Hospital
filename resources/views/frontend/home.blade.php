@@ -10,6 +10,7 @@
                             <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"> رايت جايد منصة دولية للبحث عن أفضل المستشفيات والأخصائيين
                                 ،المتميزين في تركيا لتقديم أفضل خدمات السياحة العلاجية والطبية لك
                                 .نعمل بجد كل يوم لجعل الناس أكثر صحة وأكثر سعادة</p>
+                          {{--  بحث--}}
                             <form action="#" method="post" class="mt-5 mb-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
                                 <div class="form-group">
                                     <div class="cs-search-input">
@@ -25,7 +26,7 @@
                                                         transform="translate(446.747 206.747)" fill="#05060f"></path>
                                                 </g>
                                             </svg>
-                                        </span>
+                                        </span> 
                                         <input type="text" class="form-control custom-input"
                                             placeholder="...ابحث عن مستشفى أو أخصائي أو تخصص">
                                         <button type="button" class="btn cs-btn v2">بحث</button>
@@ -72,17 +73,15 @@
             </div>
         </section>
         <!-- ./banner-section -->
-
         <!-- majors-section -->
         @isset($majors)
         <section class="majors-section">
             <div class="container">
                 <div class="main-title d-flex flex-wrap justify-content-between align-items-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2>التخصصات الطبية</h2>
-                    <a href="#" class="btn cs-btn">عرض كل التخصصات</a>
                 </div>
                     <div class="row">
-                        @foreach ($majors as $majors)
+                        @foreach ($majors->take(10) as $majors)
                         <div class="col-lg-auto col-md-4 col-6">
                             <div class="major-card">
                                 <figure>
@@ -96,21 +95,44 @@
                     </div>
                 </div>
             </div>
+            <div class="row mt-5 mb-5" style="justify-content: center;">
+                <a href="{{ route('all.major') }}" 
+                class="btn cs-btn" style="height: 44px; width: 215px">عرض جميع التخصصات </a>
+            </div>
         </section>
         @endisset
         <!-- ./majors-section -->
-
+        <!-- consultation-section -->
+        <section class="consulation-section callaction-section">
+            <div class="container">
+                <div class="content">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2">
+                            <figure>
+                                <img src="assets/images/consultation.png" class="wow zoomIn" data-wow-duration="1s" data-wow-delay="0.1s" alt="" srcset="">
+                            </figure>
+                        </div>
+                        <div class="col-lg-12">
+                            <h4 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">طلب استشارة</h4>
+                            <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+                                استشارات طبية مجانية من أطباء مختصين، هل تريد سؤال طبيب؟ احصل على مشورة
+                                .طبية ورأي ثان مجاناً، اسأل طبيب وسيتم الرد في نفس اليوم، اطئمن على صحتك
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ./consultation-section -->
         <!-- hospital-section -->
         @isset($hospitals) 
         <section class="hospital-section">
             <div class="container">
                 <div class="main-title d-flex flex-wrap justify-content-between align-items-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2>مستشفيات ننصح بها</h2>
-                    <a href="{{ route('all.hospitel') }}" class="btn cs-btn">عرض كل المستشفيات</a>
                 </div>
                 <div class="content">
                     <div class="row">
-                        @foreach ($hospitals as $hospital)
+                        @foreach ($hospitals->take(3) as $hospital)
                         <div class="col-lg-4 col-md-6">
                             <div class="hospital-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                                 
@@ -139,22 +161,48 @@
                     </div>
                 </div>
             </div>
+            <div class="row mt-5 mb-5" style="justify-content: center;">
+                <a href="{{ route('all.hospitel') }}" 
+                class="btn cs-btn" style="height: 44px; width: 215px">عرض كل المستشفيات</a>
+            </div>
         </section>
-        @endisset
-        
+        @endisset   
         <!-- ./hospital-section -->
-
+        <!-- service-request-section -->
+        <section class="callaction-section service-request-section">
+        <div class="container">
+            <div class="content">
+                <div class="row align-items-center">
+                    <div class="col-lg-2">
+                        <figure>
+                            <img src="assets/images/medical-health-services.png" class="wow zoomIn" data-wow-duration="1s" data-wow-delay="0.1s" alt="" srcset="">
+                        </figure>
+                    </div>
+                    <div class="col-lg-7">
+                        <h4 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"> تواصل معنا</h4>
+                        <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+                            تحتاج للمساعدة، ونحن هنا لمساعدتك فريق عملنا متواجد دائما على مدار الساعة
+                            .طوال أيام الأسبوع لخدمتك والإجابة على جميع أسئلتك واستفساراتك
+                        </p>
+                    </div>
+                    <div class="col-lg-3 mx-auto">
+                        <a href="{{route('frontend.messages')}}" class="btn cs-btn wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">ارسل طلب الأن</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+    <!-- service-request-section -->
         <!-- specialists-section -->
         @isset($doctors)
         <section class="specialists-section">
             <div class="container">
                 <div class="main-title d-flex flex-wrap justify-content-between align-items-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2>نخبة من الأخصائيين</h2>
-                    <a href="#" class="btn cs-btn">عرض كل الأخصائيين</a>
                 </div>
                 <div class="content">
                     <div class="row">
-                        @foreach ($doctors as $doctors )
+                        @foreach ($doctors->take(4) as $doctors )
                         <div class="col-lg-3 col-md-6">
                             <div class="general-card specialist-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                                 <figure>
@@ -187,6 +235,10 @@
 
                 </div>
             </div>
+            <div class="row mt-5 mb-5" style="justify-content: center;">
+                <a href="{{ route('all.doctors') }}" 
+                class="btn cs-btn" style="height: 44px; width: 215px">عرض كل الأخصائيين</a>
+            </div>
         </section>
         @endisset
         <!-- ./specialists-section -->
@@ -215,7 +267,7 @@
                                     </g>
                                   </svg>
                             </figure>
-                            <h4>120+</h4>
+                            <h4>{{$hospitals->count() }}</h4>
                             <h6>مستشفيات</h6>
                            </div>
                         </div>
@@ -231,7 +283,7 @@
                                   </svg>
 
                             </figure>
-                            <h4>100+</h4>
+                            <h4>{{ $doctors->count() }}</h4>
                             <h6>أخصائيين</h6>
                            </div>
                         </div>
@@ -246,7 +298,7 @@
                                   </svg>
 
                             </figure>
-                            <h4>33+</h4>
+                            <h4>{{ $majors->count() }}</h4>
                             <h6>تخصصات</h6>
                            </div>
                         </div>
@@ -261,7 +313,7 @@
                                   </svg>
 
                             </figure>
-                            <h4>550+</h4>
+                            <h4>{{ $uesr->count() }}</h4>
                             <h6>مستفيدين</h6>
                           </div>
                         </div>
@@ -285,591 +337,63 @@
         </section>
         <!-- ./numbers-section -->
 
-        <!-- why-rightguide-section -->
-        <section class="why-rightguide-section">
-            <div class="container">
-                <div class="main-title text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                    <h2>لماذا تختار رايت جايد؟</h2>
-                </div>
-                <div class="content">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6">
-                            <div class="general-card why-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                                <figure>
-                                    <img src="assets/images/why-1.svg" alt="" srcset="">
-                                </figure>
-                                <div class="general-card-body">
-                                    <h4>أفضل المستشفيات</h4>
-                                    <p>
-                                        نحرص على اختيار أفضل المستشفيات
-                                        في تركيا، الحاصلة على شهادات
-                                       .الجودة والرعاية الصحية
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="general-card why-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-                                <figure>
-                                    <img src="assets/images/why-2.svg" alt="" srcset="">
-                                </figure>
-                                <div class="general-card-body">
-                                    <h4>المرضى أهم أولوياتنا</h4>
-                                    <p>
-                                        العلاج في أحد المستشفيات هو تجربة
-                                        إنسانية حقيقية، حيث نضع نصب
-                                       .أعيننا الحالة الفردية لكل مريض
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="general-card why-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                                <figure>
-                                    <img src="assets/images/why-3.svg" alt="" srcset="">
-                                </figure>
-                                <div class="general-card-body">
-                                    <h4>التقنيات الحديثة</h4>
-                                    <p>
-                                        تتيح استخدام المعدات الحديثة
-                                        وطرق التشخيص المتقدمة التعرف
-                                       .على الأمراض في مرحلة مبكرة جدا
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="general-card why-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
-                                <figure>
-                                    <img src="assets/images/why-4.svg" alt="" srcset="">
-                                </figure>
-                                <div class="general-card-body">
-                                    <h4>الدعم المتواصل</h4>
-                                    <p>
-                                        يعمل فريقنا على مدار الساعة طوال
-                                        أيام الأسبوع لنقدم لكم الخدمة دون
-                                        .انقطاع أو تأخير لأجل راحتكم
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ./why-rightguide-section -->
-
-        <!-- consultation-section -->
-        <section class="consulation-section callaction-section">
-            <div class="container">
-                <div class="content">
-                    <div class="row align-items-center">
-                        <div class="col-lg-2">
-                            <figure>
-                                <img src="assets/images/consultation.png" class="wow zoomIn" data-wow-duration="1s" data-wow-delay="0.1s" alt="" srcset="">
-                            </figure>
-                        </div>
-                        <div class="col-lg-7">
-                            <h4 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">طلب استشارة</h4>
-                            <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-                                استشارات طبية مجانية من أطباء مختصين، هل تريد سؤال طبيب؟ احصل على مشورة
-                                .طبية ورأي ثان مجاناً، اسأل طبيب وسيتم الرد في نفس اليوم، اطئمن على صحتك
-                            </p>
-                        </div>
-                        <div class="col-lg-3 mx-auto">
-                            <a href="#" class="btn cs-btn wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">طلب استشارة</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ./consultation-section -->
-
         <!-- rates-stories-section -->
         <section class="rates-stories-section">
             <div class="container">
-                <div class="main-title wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                <div class="main-title d-flex flex-wrap justify-content-between align-items-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInUp;">
                     <h2>قصص وتقييمات</h2>
+                    <a href="#" class="btn cs-btn">اضافة تقيم </a>
                 </div>
                 <div class="content">
-                    <div class="owl-carousel rates-slider owl-slider">
-                        <div class="rates-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                            <div class="rate">
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                        </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                        </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                        </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                        </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                        </svg>
-                                </span>
-                                <h6>5.0</h6>
-                            </div>
-                            <p>
-                                أنا معجب جدا بخدماتكم، لقد أخبرت
-                                ،الأصدقاء عن خدماتكم الممتازة
-                                .أنصح  المرضى بإستخدام المنصة
-                            </p>
-                            <div class="rates-card-info">
-                                <figure>
-                                    <img src="assets/images/avatar.png" alt="" srcset="">
-                                </figure>
-                                <div>
-                                    <h4>عبدالكريم محمد</h4>
-                                    <h6>‏12 أغسطس، 2022</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rates-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-                            <div class="rate">
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
+                <div class="owl-carousel rates-slider owl-slider">
+                    <div class="rates-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <div class="rate">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
+                                    <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
                                     </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
+                            </span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
+                                    <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
                                     </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
+                            </span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
+                                    <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
                                     </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
+                            </span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
+                                    <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
                                     </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
+                            </span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
+                                    <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
                                     </svg>
-                                </span>
+                            </span>
                             <h6>5.0</h6>
-                            </div>
-                            <p>
-                                أريد أن أخبركم بأن مستشفيات منصة رايت جايد من أفضل المستشفيات في تركيا لقد تعاملت معها وكان مفيد جدا
-                            </p>
-                            <div class="rates-card-info">
-                                <figure>
-                                    <img src="assets/images/avatar-2.png" alt="" srcset="">
-                                </figure>
-                                <div>
-                                    <h4>رقية الشافعي</h4>
-                                    <h6>‏14 يوليو، 2022</h6>
-                                </div>
+                        </div>
+                        <p>
+                            أنا معجب جدا بخدماتكم، لقد أخبرت
+                            ،الأصدقاء عن خدماتكم الممتازة
+                            .أنصح  المرضى بإستخدام المنصة
+                        </p>
+                        <div class="rates-card-info">
+                            <figure>
+                                <img src="assets/images/avatar.png" alt="" srcset="">
+                            </figure>
+                            <div>
+                                <h4>عبدالكريم محمد</h4>
+                                <h6>‏12 أغسطس، 2022</h6>
                             </div>
                         </div>
-                        <div class="rates-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                            <div class="rate">
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                            <h6>5.0</h6>
-                            </div>
-                            <p>
-                                أشكر الدكتور جون شكرا جزيلا، إنه من
-                                أفضل الأخصائيين، حريص على سلامة
-                            .المرضى، لديه خبرة كبيرة ونجاحات
-                            </p>
-                            <div class="rates-card-info">
-                                <figure>
-                                    <img src="assets/images/avatar-3.png" alt="" srcset="">
-                                </figure>
-                                <div>
-                                    <h4>عبير العمري</h4>
-                                    <h6>‏21 يونيو، 2022</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rates-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
-                            <div class="rate">
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                            <h6>5.0</h6>
-                            </div>
-                            <p>
-                                أنا معجب جدا بخدماتكم، لقد أخبرت
-                                ،الأصدقاء عن خدماتكم الممتازة
-                                .أنصح  المرضى بإستخدام المنصة
-                            </p>
-                            <div class="rates-card-info">
-                                <figure>
-                                    <img src="assets/images/avatar.png" alt="" srcset="">
-                                </figure>
-                                <div>
-                                    <h4>عبدالكريم محمد</h4>
-                                    <h6>‏12 أغسطس، 2022</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rates-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-                            <div class="rate">
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                            <h6>5.0</h6>
-                            </div>
-                            <p>
-                                أريد أن أخبركم بأن مستشفيات منصة رايت جايد من أفضل المستشفيات في تركيا لقد تعاملت معها وكان مفيد جدا
-                            </p>
-                            <div class="rates-card-info">
-                                <figure>
-                                    <img src="assets/images/avatar-2.png" alt="" srcset="">
-                                </figure>
-                                <div>
-                                    <h4>رقية الشافعي</h4>
-                                    <h6>‏14 يوليو، 2022</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rates-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
-                            <div class="rate">
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.854" viewBox="0 0 16 14.854">
-                                        <path id="Path" d="M7.3.462A.765.765,0,0,1,8.7.462l1.668,3.866a.765.765,0,0,0,.644.46l4.278.331a.765.765,0,0,1,.428,1.353L12.5,9.128a.765.765,0,0,0-.256.774l.99,4a.765.765,0,0,1-1.131.843L8.388,12.556a.765.765,0,0,0-.776,0L3.893,14.746A.765.765,0,0,1,2.762,13.9l.99-4A.765.765,0,0,0,3.5,9.128L.279,6.471A.765.765,0,0,1,.707,5.118l4.278-.331a.765.765,0,0,0,.644-.46Z" fill="#ffc542"/>
-                                    </svg>
-                                </span>
-                            <h6>5.0</h6>
-                            </div>
-                            <p>
-                                أشكر الدكتور جون شكرا جزيلا، إنه من
-                                أفضل الأخصائيين، حريص على سلامة
-                            .المرضى، لديه خبرة كبيرة ونجاحات
-                            </p>
-                            <div class="rates-card-info">
-                                <figure>
-                                    <img src="assets/images/avatar-3.png" alt="" srcset="">
-                                </figure>
-                                <div>
-                                    <h4>عبير العمري</h4>
-                                    <h6>‏21 يونيو، 2022</h6>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
+                  </div>
                 </div>
-            </div>
+              </div>
         </section>
         <!-- ./rates-stories-section -->
-
-
-        <!-- offers-section -->
-          <!-- service-request-section -->
-          <section class="callaction-section service-request-section">
-            <div class="container">
-                <div class="content">
-                    <div class="row align-items-center">
-                        <div class="col-lg-2">
-                            <figure>
-                                <img src="assets/images/medical-health-services.png" class="wow zoomIn" data-wow-duration="1s" data-wow-delay="0.1s" alt="" srcset="">
-                            </figure>
-                        </div>
-                        <div class="col-lg-7">
-                            <h4 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">طلب خدمة</h4>
-                            <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-                                تحتاج للمساعدة، ونحن هنا لمساعدتك فريق عملنا متواجد دائما على مدار الساعة
-                                .طوال أيام الأسبوع لخدمتك والإجابة على جميع أسئلتك واستفساراتك
-                            </p>
-                        </div>
-                        <div class="col-lg-3 mx-auto">
-                            <a href="#" class="btn cs-btn wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">ارسل طلب الأن</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ./service-request-section -->
-        <section class="offers-section">
-                <div class="container">
-                    <div class="main-title d-flex flex-wrap justify-content-between align-items-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                        <h2>أفضل العروض</h2>
-                        <a href="#" class="btn cs-btn">عرض كل العروض</a>
-                    </div>
-                    <div class="content">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6">
-                                <a href="#">
-                                    <div class="offer-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                                        <figure>
-                                            <img src="assets/images/offer-1.png" alt="" srcset="">
-                                            <div class="discount">
-                                                ‏20% خصم
-                                            </div>
-                                        </figure>
-                                        <div class="offer-card-body">
-                                            <h4>تنظيف وتلميع الأسنان</h4>
-                                            <h6>د. فوليا جولنر</h6>
-                                            <div class="price">
-                                                <p>80$</p>
-                                                <p>100$</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-6">
-                            <a href="#">
-                                <div class="offer-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-                                    <figure>
-                                        <img src="assets/images/offer2.png" alt="" srcset="">
-                                        <div class="discount">
-                                            ‏25% خصم
-                                        </div>
-                                    </figure>
-                                    <div class="offer-card-body">
-                                        <h4>علاج بالخلايا الجذعية للشعر</h4>
-                                        <h6>مستشفى استيتك  انترناشونال</h6>
-                                        <div class="price">
-                                            <p>225$</p>
-                                            <p>300$</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            </div>
-                            <div class="col-lg-3 col-md-6">
-                                <a href="#">
-                                    <div class="offer-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                                        <figure>
-                                            <img src="assets/images/offer3.png" alt="" srcset="">
-                                            <div class="discount">
-                                                ‏15% خصم
-                                            </div>
-                                        </figure>
-                                        <div class="offer-card-body">
-                                            <h4>تقويم الأسنان المعدني</h4>
-                                            <h6>مستشفى الأناضول الطبي</h6>
-                                            <div class="price">
-                                                <p>290$</p>
-                                                <p>340$</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-6">
-                                <a href="#">
-                                    <div class="offer-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
-                                        <figure>
-                                            <img src="assets/images/offer4.png" alt="" srcset="">
-                                            <div class="discount">
-                                                ‏30% خصم
-                                            </div>
-                                        </figure>
-                                        <div class="offer-card-body">
-                                            <h4>تصحيح عيوب الابصار بالليزر</h4>
-                                            <h6>مستشفى ميدبول ميجا</h6>
-                                            <div class="price">
-                                                <p>140$</p>
-                                                <p>200$</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </section>
-        <!-- offers-section -->
-
-        <!-- standers-section -->
-        <section class="standers-section">
-            <div class="container">
-                <div class="main-title text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                    <h2>معايير إختيار المستشفى</h2>
-                </div>
-                <div class="content">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="standers-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                                <figure>
-                                    <img src="assets/images/standers-1.png" alt="" srcset="">
-                                </figure>
-                                <h4>إعتماد جودة المستشفى</h4>
-                                <p>
-                                    الضمان الأكبر لتلقيك خدمة طبية عالية الجودة هي
-                                    اعتماد المستشفى أو العيادة من قبل أحد جهات
-                                   .الاعتماد العالمية ومن أهم هيئات الاعتماد
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="standers-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-                                <figure>
-                                    <img src="assets/images/standers-2.png" alt="" srcset="">
-                                </figure>
-                                <h4>خدمات ومرافق المستشفى</h4>
-                                <p>
-                                    معظم المستشفيات التي تقدم خدمات السياحة العلاجية تقوم بتوفير حزم متكاملة من خدمات تتضمن تكاليف الإجراءات العلاجية، التحاليل والعلاجات .
-                                </p>
-                            </div>
-                        </div>
-                         <div class="col-lg-4 col-md-6">
-                            <div class="standers-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                                <figure>
-                                    <img src="assets/images/standers-3.png" alt="" srcset="">
-                                </figure>
-                                <h4>الرعاية الصحية أثناء العلاج</h4>
-                                <p>
-                                    تضمن الرعاية الصحية الأولية حصول الأشخاص على
-                                    رعاية شاملة، تتراوح بين الإرشاد والوقاية إلى العلاج
-                                   .وإعادة التأهيل والرعاية الملطفة كأقرب ما يمكن
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="standers-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
-                                <figure>
-                                    <img src="assets/images/standers-4.png" alt="" srcset="">
-                                </figure>
-                                <h4>اللغات المستخدمة</h4>
-                                <p>
-                                    أحد العوامل الهامة التي قد تساعدك في اتخاذ قرارك
-                                    هي اللغات التي يستخدمها الطاقم العلاجي، وكذلك
-                                   .ما يمكن عمله بشأن حاجز اللغة
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="standers-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-                                <figure>
-                                    <img src="assets/images/standers-5.png" alt="" srcset="">
-                                </figure>
-                                <h4>السجلات الطبية</h4>
-                                <p>
-                                    من المهم لمن يتلقون العلاج في الخارج أن يضعوا في
-                                    اعتبارهم كيف تتعامل المستشفى التي يتعاملون معها
-                                    .مع السجلات الطبية وغيرها من الوثائق ذات الصلة
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="standers-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
-                                <figure>
-                                    <img src="assets/images/standers-6.png" alt="" srcset="">
-                                </figure>
-                                <h4>وجود وحدة للطواريء</h4>
-                                <p>
-                                    يستقبل قسم الطوارئ بالمستشفى المرضى على
-                                    مدار 24 ساعة يوميا طيلة أيام الأسبوع، ويتميز بوجود
-                                    .أخصائيين في طب الطوارئ والإصابات
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ./standers-section -->
 
         <!-- contact-us-section -->
         <section class="callaction-section contact-us-section">
@@ -889,7 +413,7 @@
                             </p>
                         </div>
                         <div class="col-lg-3 mx-auto">
-                            <a href="#" class="btn cs-btn wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">تواصل معنا الأن</a>
+                            <a href="{{ route('frontend.messages') }}" class="btn cs-btn wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">تواصل معنا الأن</a>
                         </div>
                     </div>
                 </div>
@@ -898,338 +422,111 @@
         <!-- ./contact-us-section -->
 
         <!-- blog-section -->
+        @isset($blogs)
         <section class="blog-section">
             <div class="container">
                 <div class="main-title d-flex flex-wrap justify-content-between align-items-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                     <h2>من المدونة</h2>
-                    <a href="blog.html" class="btn cs-btn">عرض كل المقالات</a>
                 </div>
                 <div class="content">
                     <div class="row">
+                        @foreach ($blogs->take(3) as $blog)
                         <div class="col-lg-4 col-md-6">
-                            <a href="blog-details.html">
-                                <div class="article-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" >
+                            <a href="{{ route('frontend.blogs',$blog->id) }}">
+                                <div class="article-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                                     <figure>
-                                        <img src="assets/images/article1.png" alt="" srcset="">
+                                        <img style="width: 100% ;height:100% ;" src="{{Storage::url('blogs/'.$blog->cover)}}" alt="" srcset="">
                                     </figure>
                                     <div class="article-card-body">
-                                        <h6>‏12 أغسطس، 2022 - طب العيون</h6>
-                                        <h4> أسباب جفاف العين وأهم أعراضه وطرق
-                                            العلاج بالأدوية والجراحة</h4>
-                                            <p> يعتبر من أسباب جفاف العين الذي انتشر في الآونة الأخيرة
-                                                بشكل كبير خصوصا في ظل الثورة التكنولوجية الكبيرة
-                                               .وانتشار الأجهزة الإلكترونية من أجهزة الهواتف المحمولة</p>
+                                        <h6>{{ $blog->major->name }}</h6>
+                                        <h4>{{ $blog->title }}</h4>
+                                        <p>{{ $blog->descrption }}</p>
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <a href="blog-details.html">
-                                <div class="article-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" >
-                                    <figure>
-                                        <img src="assets/images/article-2.png" alt="" srcset="">
-                                    </figure>
-                                    <div class="article-card-body">
-                                        <h6>‏12 أغسطس، 2022 - طب العيون</h6>
-                                        <h4>الجلطة القلبية: وأعراض جلطة القلب وأسبابها وماذا بعد الإصابة بالجلطة </h4>
-                                            <p> الجلطة القلبية هي نقص شديد ومفاجئ في التروية
-                                                الدموية لعضلة القلب، تكون بسبب انسداد مفاجئ في
-                                               .الشرايين التاجية المصابة وتكون أعراضها مثل الذبحة</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <a href="blog-details.html">
-                                <div class="article-card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" >
-                                    <figure>
-                                        <img src="assets/images/article-3.png" alt="" srcset="">
-                                    </figure>
-                                    <div class="article-card-body">
-                                        <h6>‏12 أغسطس، 2022 - طب العيون</h6>
-                                        <h4>مرض الربو (الأزمة) عند الأطفال: ماهيته، أهم أعراضه، التشخيص والعلاج</h4>
-                                            <p> ينتج مرض الربو عن حساسية زائدة للمجاري الهوائية لبعض
-                                                المحفزات، تظهر على شكل نوبات من صعوبة التنفس عند
-                                               .التعرض لهذه المحفزات نتيجة التضيق فيها وزيادة الإفرازات</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
+            <div class="row mt-5 mb-5" style="justify-content: center;">
+                <a href="{{ route('blogs') }}" 
+                class="btn cs-btn" style="height: 44px; width: 215px">عرض كل المقالات</a>
+            </div>
         </section>
+        @endisset
+        
         <!-- ./blog-section -->
 
          <!-- fqa-section -->
-         <section class="fqa-section" id="fqa">
-            <div class="container">
-                <div class="content">
+      <section class="fqa-section" id="fqa">
+         <div class="container">
+            <div class="content">
                     <div class="main-title d-flex flex-wrap justify-content-between align-items-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                         <h2>الأسئلة الأكثر شيـوعا</h2>
                         <a href="#" class="btn cs-btn">عرض كل الأسئلة</a>
+                  </div>
+            @foreach ($messages->take(4) as$messages )
+            <div id="accordion" class="cs-accordion">
+                <div class="card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <div class="d-flex">
+                                <button class="btn btn-link"  data-bs-toggle="collapse" data-bs-target="#collapse{{ $messages->id }}" aria-expanded="false" aria-controls="collapse">
+                                 {{ $messages->messages }}؟
+                                </button>
+                                <span class="show">
+                                    <svg id="add-circle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path id="Vector" d="M20,10A10,10,0,1,1,10,0,10,10,0,0,1,20,10Z" transform="translate(2 2)" fill="#cfd0d5"/>
+                                        <path id="Vector-2" data-name="Vector" d="M8.75,4H5.5V.75A.75.75,0,0,0,4,.75V4H.75a.75.75,0,0,0,0,1.5H4V8.75a.75.75,0,0,0,1.5,0V5.5H8.75a.75.75,0,0,0,0-1.5Z" transform="translate(7.25 7.25)" fill="#868692"/>
+                                        <path id="Vector-3" data-name="Vector" d="M0,0H24V24H0Z" fill="none" opacity="0"/>
+                                    </svg>
+                                </span>
+                                <span class="hide">
+                                    <svg id="vuesax_bulk_minus-cirlce" data-name="vuesax/bulk/minus-cirlce" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <g id="minus-cirlce">
+                                        <path id="Vector" d="M20,10A10,10,0,1,1,10,0,10,10,0,0,1,20,10Z" transform="translate(2 2)" fill="#d3efd5"/>
+                                        <path id="Vector-2" data-name="Vector" d="M8.75,1.5h-8A.755.755,0,0,1,0,.75.755.755,0,0,1,.75,0h8a.75.75,0,0,1,0,1.5Z" transform="translate(7.17 11.25)" fill="#00ce68"/>
+                                        <path id="Vector-3" data-name="Vector" d="M0,0H24V24H0Z" fill="none" opacity="0"/>
+                                        </g>
+                                    </svg>
+
+                                </span>
+                            </div>
+                        </h5>
                     </div>
-                    <div id="accordion" class="cs-accordion">
-                            <div class="card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                            <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                    <div class="d-flex">
-                                        <button class="btn btn-link"  data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            ما هي فكرة منصة رايت جايد، وما هو هدفها؟
-                                        </button>
-                                        <span class="show">
-
-                                            <svg id="add-circle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                                <path id="Vector" d="M20,10A10,10,0,1,1,10,0,10,10,0,0,1,20,10Z" transform="translate(2 2)" fill="#cfd0d5"/>
-                                                <path id="Vector-2" data-name="Vector" d="M8.75,4H5.5V.75A.75.75,0,0,0,4,.75V4H.75a.75.75,0,0,0,0,1.5H4V8.75a.75.75,0,0,0,1.5,0V5.5H8.75a.75.75,0,0,0,0-1.5Z" transform="translate(7.25 7.25)" fill="#868692"/>
-                                                <path id="Vector-3" data-name="Vector" d="M0,0H24V24H0Z" fill="none" opacity="0"/>
-                                            </svg>
-
-                                        </span>
-                                        <span class="hide">
-                                            <svg id="vuesax_bulk_minus-cirlce" data-name="vuesax/bulk/minus-cirlce" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                                <g id="minus-cirlce">
-                                                <path id="Vector" d="M20,10A10,10,0,1,1,10,0,10,10,0,0,1,20,10Z" transform="translate(2 2)" fill="#d3efd5"/>
-                                                <path id="Vector-2" data-name="Vector" d="M8.75,1.5h-8A.755.755,0,0,1,0,.75.755.755,0,0,1,.75,0h8a.75.75,0,0,1,0,1.5Z" transform="translate(7.17 11.25)" fill="#00ce68"/>
-                                                <path id="Vector-3" data-name="Vector" d="M0,0H24V24H0Z" fill="none" opacity="0"/>
-                                                </g>
-                                            </svg>
-
-                                        </span>
-                                    </div>
-                                </h5>
-                            </div>
-
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion">
-                                <div class="card-body">
-                                    تقوم فكرة المنصة الأساسية على ربط المرضى من جميع أنحاء العالم بأفضل المستشفيات والأطباء في تركيا والتي تختص وتتميز بتخصصات السياحة
-                                    العلاجية المنتشرة او بالعمليات الفريدة من نوعها والتخصصات النادرة، بحيث يستطيع المريض او الزائر أخذ المعلومات الكاملة والوافية وبدون
-                                .مغالطات في دقائق معدودة
-                             </div>
-                            </div>
-                            </div>
-                            <div class="card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-                                <div class="card-header" id="heading-2">
-                                    <h5 class="mb-0">
-                                        <div class="d-flex">
-                                            <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="true" aria-controls="collapse-2">
-                                                ما هي الخدمات التي تقدمها منصة رايت جايد؟
-                                            </button>
-                                            <span class="show">
-
-                                                <svg id="add-circle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                                    <path id="Vector" d="M20,10A10,10,0,1,1,10,0,10,10,0,0,1,20,10Z" transform="translate(2 2)" fill="#cfd0d5"/>
-                                                    <path id="Vector-2" data-name="Vector" d="M8.75,4H5.5V.75A.75.75,0,0,0,4,.75V4H.75a.75.75,0,0,0,0,1.5H4V8.75a.75.75,0,0,0,1.5,0V5.5H8.75a.75.75,0,0,0,0-1.5Z" transform="translate(7.25 7.25)" fill="#868692"/>
-                                                    <path id="Vector-3" data-name="Vector" d="M0,0H24V24H0Z" fill="none" opacity="0"/>
-                                                </svg>
-
-                                            </span>
-                                            <span class="hide">
-                                                <svg id="vuesax_bulk_minus-cirlce" data-name="vuesax/bulk/minus-cirlce" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                                    <g id="minus-cirlce">
-                                                    <path id="Vector" d="M20,10A10,10,0,1,1,10,0,10,10,0,0,1,20,10Z" transform="translate(2 2)" fill="#d3efd5"/>
-                                                    <path id="Vector-2" data-name="Vector" d="M8.75,1.5h-8A.755.755,0,0,1,0,.75.755.755,0,0,1,.75,0h8a.75.75,0,0,1,0,1.5Z" transform="translate(7.17 11.25)" fill="#00ce68"/>
-                                                    <path id="Vector-3" data-name="Vector" d="M0,0H24V24H0Z" fill="none" opacity="0"/>
-                                                    </g>
-                                                </svg>
-
-                                            </span>
-                                        </div>
-                                    </h5>
-                                </div>
-
-                                <div id="collapse-2" class="collapse" aria-labelledby="heading-2" data-bs-parent="#accordion">
-                                    <div class="card-body">
-                                        تقوم فكرة المنصة الأساسية على ربط المرضى من جميع أنحاء العالم بأفضل المستشفيات والأطباء في تركيا والتي تختص وتتميز بتخصصات السياحة
-                                        العلاجية المنتشرة او بالعمليات الفريدة من نوعها والتخصصات النادرة، بحيث يستطيع المريض او الزائر أخذ المعلومات الكاملة والوافية وبدون
-                                    .مغالطات في دقائق معدودة                            </div>
-                                </div>
-                            </div>
-                            <div class="card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                                <div class="card-header" id="heading-3">
-                                    <h5 class="mb-0">
-                                        <div class="d-flex">
-                                            <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="true" aria-controls="collapse-3">
-                                                كيف يمكنني تقديم عرض طلب أو خدمة من خلال منصة رايت جايد؟
-                                            </button>
-                                            <span class="show">
-
-                                                <svg id="add-circle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                                    <path id="Vector" d="M20,10A10,10,0,1,1,10,0,10,10,0,0,1,20,10Z" transform="translate(2 2)" fill="#cfd0d5"/>
-                                                    <path id="Vector-2" data-name="Vector" d="M8.75,4H5.5V.75A.75.75,0,0,0,4,.75V4H.75a.75.75,0,0,0,0,1.5H4V8.75a.75.75,0,0,0,1.5,0V5.5H8.75a.75.75,0,0,0,0-1.5Z" transform="translate(7.25 7.25)" fill="#868692"/>
-                                                    <path id="Vector-3" data-name="Vector" d="M0,0H24V24H0Z" fill="none" opacity="0"/>
-                                                </svg>
-
-                                            </span>
-                                            <span class="hide">
-                                                <svg id="vuesax_bulk_minus-cirlce" data-name="vuesax/bulk/minus-cirlce" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                                    <g id="minus-cirlce">
-                                                    <path id="Vector" d="M20,10A10,10,0,1,1,10,0,10,10,0,0,1,20,10Z" transform="translate(2 2)" fill="#d3efd5"/>
-                                                    <path id="Vector-2" data-name="Vector" d="M8.75,1.5h-8A.755.755,0,0,1,0,.75.755.755,0,0,1,.75,0h8a.75.75,0,0,1,0,1.5Z" transform="translate(7.17 11.25)" fill="#00ce68"/>
-                                                    <path id="Vector-3" data-name="Vector" d="M0,0H24V24H0Z" fill="none" opacity="0"/>
-                                                    </g>
-                                                </svg>
-
-                                            </span>
-                                        </div>
-                                    </h5>
-                                </div>
-
-                                <div id="collapse-3" class="collapse" aria-labelledby="heading-3" data-bs-parent="#accordion">
-                                    <div class="card-body">
-                                        تقوم فكرة المنصة الأساسية على ربط المرضى من جميع أنحاء العالم بأفضل المستشفيات والأطباء في تركيا والتي تختص وتتميز بتخصصات السياحة
-                                        العلاجية المنتشرة او بالعمليات الفريدة من نوعها والتخصصات النادرة، بحيث يستطيع المريض او الزائر أخذ المعلومات الكاملة والوافية وبدون
-                                    .مغالطات في دقائق معدودة                            </div>
-                                </div>
-                            </div>
-                            <div class="card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
-                                <div class="card-header" id="heading-4">
-                                    <h5 class="mb-0">
-                                        <div class="d-flex">
-                                            <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="true" aria-controls="collapse-4">
-                                                أنا كأخصائي، كيف يمكنني الإنضمام لأخصائيي منصة رايت جايد؟
-                                            </button>
-                                            <span class="show">
-
-                                                <svg id="add-circle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                                    <path id="Vector" d="M20,10A10,10,0,1,1,10,0,10,10,0,0,1,20,10Z" transform="translate(2 2)" fill="#cfd0d5"/>
-                                                    <path id="Vector-2" data-name="Vector" d="M8.75,4H5.5V.75A.75.75,0,0,0,4,.75V4H.75a.75.75,0,0,0,0,1.5H4V8.75a.75.75,0,0,0,1.5,0V5.5H8.75a.75.75,0,0,0,0-1.5Z" transform="translate(7.25 7.25)" fill="#868692"/>
-                                                    <path id="Vector-3" data-name="Vector" d="M0,0H24V24H0Z" fill="none" opacity="0"/>
-                                                </svg>
-
-                                            </span>
-                                            <span class="hide">
-                                                <svg id="vuesax_bulk_minus-cirlce" data-name="vuesax/bulk/minus-cirlce" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                                    <g id="minus-cirlce">
-                                                    <path id="Vector" d="M20,10A10,10,0,1,1,10,0,10,10,0,0,1,20,10Z" transform="translate(2 2)" fill="#d3efd5"/>
-                                                    <path id="Vector-2" data-name="Vector" d="M8.75,1.5h-8A.755.755,0,0,1,0,.75.755.755,0,0,1,.75,0h8a.75.75,0,0,1,0,1.5Z" transform="translate(7.17 11.25)" fill="#00ce68"/>
-                                                    <path id="Vector-3" data-name="Vector" d="M0,0H24V24H0Z" fill="none" opacity="0"/>
-                                                    </g>
-                                                </svg>
-
-                                            </span>
-                                        </div>
-                                    </h5>
-                                </div>
-
-                                <div id="collapse-4" class="collapse" aria-labelledby="heading-4" data-bs-parent="#accordion">
-                                    <div class="card-body">
-                                        تقوم فكرة المنصة الأساسية على ربط المرضى من جميع أنحاء العالم بأفضل المستشفيات والأطباء في تركيا والتي تختص وتتميز بتخصصات السياحة
-                                        العلاجية المنتشرة او بالعمليات الفريدة من نوعها والتخصصات النادرة، بحيث يستطيع المريض او الزائر أخذ المعلومات الكاملة والوافية وبدون
-                                    .مغالطات في دقائق معدودة                            </div>
-                                </div>
-                            </div>
-                            <div class="card wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-                                <div class="card-header" id="heading-5">
-                                    <h5 class="mb-0">
-                                        <div class="d-flex">
-                                            <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-5" aria-expanded="true" aria-controls="collapse-5">
-                                                هل يمكنني تقديم طلب عرض سعر من مستشفى دون التسجيل بالمنصة؟
-                                            </button>
-                                            <span class="show">
-
-                                                <svg id="add-circle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                                    <path id="Vector" d="M20,10A10,10,0,1,1,10,0,10,10,0,0,1,20,10Z" transform="translate(2 2)" fill="#cfd0d5"/>
-                                                    <path id="Vector-2" data-name="Vector" d="M8.75,4H5.5V.75A.75.75,0,0,0,4,.75V4H.75a.75.75,0,0,0,0,1.5H4V8.75a.75.75,0,0,0,1.5,0V5.5H8.75a.75.75,0,0,0,0-1.5Z" transform="translate(7.25 7.25)" fill="#868692"/>
-                                                    <path id="Vector-3" data-name="Vector" d="M0,0H24V24H0Z" fill="none" opacity="0"/>
-                                                </svg>
-
-                                            </span>
-                                            <span class="hide">
-                                                <svg id="vuesax_bulk_minus-cirlce" data-name="vuesax/bulk/minus-cirlce" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                                    <g id="minus-cirlce">
-                                                    <path id="Vector" d="M20,10A10,10,0,1,1,10,0,10,10,0,0,1,20,10Z" transform="translate(2 2)" fill="#d3efd5"/>
-                                                    <path id="Vector-2" data-name="Vector" d="M8.75,1.5h-8A.755.755,0,0,1,0,.75.755.755,0,0,1,.75,0h8a.75.75,0,0,1,0,1.5Z" transform="translate(7.17 11.25)" fill="#00ce68"/>
-                                                    <path id="Vector-3" data-name="Vector" d="M0,0H24V24H0Z" fill="none" opacity="0"/>
-                                                    </g>
-                                                </svg>
-
-                                            </span>
-                                        </div>
-                                    </h5>
-                                </div>
-
-                                <div id="collapse-5" class="collapse" aria-labelledby="heading-5" data-bs-parent="#accordion">
-                                    <div class="card-body">
-                                        تقوم فكرة المنصة الأساسية على ربط المرضى من جميع أنحاء العالم بأفضل المستشفيات والأطباء في تركيا والتي تختص وتتميز بتخصصات السياحة
-                                        العلاجية المنتشرة او بالعمليات الفريدة من نوعها والتخصصات النادرة، بحيث يستطيع المريض او الزائر أخذ المعلومات الكاملة والوافية وبدون
-                                    .مغالطات في دقائق معدودة                            </div>
-                                </div>
-                            </div>
-
-                      </div>
-
+                    <div id="collapse{{ $messages->id }}" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            {{ $messages->reply }}
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+            @endforeach
+          </div>
+        </div>
+     </section>
         <!-- ./fqa-section -->
-
-        <!-- our-partners-section -->
-        <section class="our-partners-section">
-            <div class="container">
-                <div class="main-title text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                    <h2>شركاؤنا في النجاح</h2>
-                </div>
-                <div class="content">
-                    <div class="d-flex align-items-center flex-wrap gap-3">
-                        <div class="partner-card">
-                            <figure class="scale">
-                                <img src="assets/images/partner-1.png" class="wow zoomIn" data-wow-duration="1s" data-wow-delay="0.1s" alt="" srcset="">
-                            </figure>
-                        </div>
-                        <div class="partner-card">
-                            <figure class="scale">
-                                <img src="assets/images/partner-2.png" class="wow zoomIn" data-wow-duration="1s" data-wow-delay="0.2s" alt="" srcset="">
-                            </figure>
-                        </div>
-                        <div class="partner-card">
-                            <figure class="scale">
-                                <img src="assets/images/partner-3.png" class="wow zoomIn" data-wow-duration="1s" data-wow-delay="0.3s" alt="" srcset="">
-                            </figure>
-                        </div>
-                        <div class="partner-card">
-                            <figure class="scale">
-                                <img src="assets/images/partner-4.png" class="wow zoomIn" data-wow-duration="1s" data-wow-delay="0.4s" alt="" srcset="">
-                            </figure>
-                        </div>
-                        <div class="partner-card">
-                            <figure class="scale">
-                                <img src="assets/images/partner-5.png" class="wow zoomIn" data-wow-duration="1s" data-wow-delay="0.5s" alt="" srcset="">
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ./our-partners-section -->
-
         <!-- mailinglist-section -->
+        @if( Auth('user')->user())
+        @else
         <section class="mailinglist-section">
             <div class="container">
                 <div class="content">
                     <h4>إنضم للقائمة البريدية ليصلك كل جديد.</h4>
-                    <form action="#" method="post">
+                    <form action="" method="post">
                         <div class="cs-search-input">
-                            <span>
-                                <svg id="vuesax_bulk_sms" data-name="vuesax/bulk/sms" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <g id="sms">
-                                      <path id="Vector" d="M0,0H24V24H0Z" fill="none" opacity="0"/>
-                                      <path id="Vector-2" data-name="Vector" d="M15,17H5c-3,0-5-1.5-5-5V5C0,1.5,2,0,5,0H15c3,0,5,1.5,5,5v7C20,15.5,18,17,15,17Z" transform="translate(2 3.5)" fill="#868692" opacity="0.4"/>
-                                      <g id="Group" transform="translate(6.247 8.244)">
-                                        <path id="Vector-3" data-name="Vector" d="M5.753,4.626a3.717,3.717,0,0,1-2.34-.79l-3.13-2.5a.747.747,0,1,1,.93-1.17l3.13,2.5a2.386,2.386,0,0,0,2.81,0l3.13-2.5a.738.738,0,0,1,1.05.12.738.738,0,0,1-.12,1.05l-3.13,2.5A3.67,3.67,0,0,1,5.753,4.626Z" fill="#868692"/>
-                                      </g>
-                                    </g>
-                                  </svg>
-
-                            </span>
-                            <input type="text" class="form-control custom-input"
-                                placeholder="أدخل بريدك الإلكتروني">
-                            <button type="button" class="btn cs-btn v2">إشتراك</button>
+                           
+                            <a href="{{  route('profail.create') }}"
+                             type="submit" class="btn cs-btn v2 position-relative ">إشتراك</a>
+                             
                         </div>
                     </form>
                 </div>
             </div>
         </section>
+        @endif
+        
         <!-- ./mailinglist-section -->
 
         <!-- contact-us-btn -->

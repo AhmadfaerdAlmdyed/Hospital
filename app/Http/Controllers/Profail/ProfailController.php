@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Profail;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
@@ -19,7 +20,8 @@ class ProfailController extends Controller
     public function index()
     { 
         $user = auth()->user();
-        return view('frontend.uesrs.layouts',compact('user'));
+        $blogs=Blog::all();
+        return view('frontend.uesrs.layouts',compact('user','blogs'));
     }
 
     /**
@@ -30,7 +32,8 @@ class ProfailController extends Controller
     public function create()
     { 
         $user = auth()->user();
-        return view('frontend.uesrs.index',compact('user'));
+        $blogs=Blog::all();
+        return view('frontend.uesrs.index',compact('user','blogs'));
     }
   
     public function PersonalData()

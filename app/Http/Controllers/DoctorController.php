@@ -38,21 +38,20 @@ class DoctorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, )
+    public function store(Request $request)
     {
         $request->validate([
             'name'=>'required|string',
-            'hospital_id' =>'required',
+            'hosptial_id' =>'required',
             'email'=>'required|email',
             'phone'=>'required|min:9',
             'descrption'=>'nullable|string',
             'cover'=>'image|nullable|mimes:jpg,png'
         ]); 
-          
             $doctor =new Doctor();
             $doctor->name=$request->get('name');
             $doctor->email=$request->get('email');
-            $doctor->hosptial_id = $request->get('hospital_id');
+            $doctor->hosptial_id= $request->get('hosptial_id');
             $doctor->phone=$request->get('phone');
             $doctor->descrption=$request->get('descrption');
             if($request->has('cover')){
@@ -104,7 +103,7 @@ class DoctorController extends Controller
         
         $request->validate([
             'name'=>'required|string|',
-            'hospital_id' => 'required',
+            'hosptial_id' => 'required',
             'email'=>'required|email',
             'phone'=>'required|max:==9',
             'descrption'=>'nullable|string',
@@ -112,7 +111,7 @@ class DoctorController extends Controller
         ]);
        
             $doctor->name=$request->get('name');
-            $doctor->hosptial_id = $request->get('hospital_id');
+            $doctor->hosptial_id = $request->get('hosptial_id');
             $doctor->email=$request->get('email');
             $doctor->phone=$request->get('phone');
             $doctor->descrption=$request->get('descrption');
@@ -124,7 +123,7 @@ class DoctorController extends Controller
                     }
              $seved= $doctor->save();
             if($seved){
-                session()->flash('massage','doctor cerated scssesfuly');
+                session()->flash('massage','doctor update scssesfuly');
                return redirect()->route('doctors.index');
             }
     }

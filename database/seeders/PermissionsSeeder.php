@@ -48,5 +48,21 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'update-uesrs', 'guard_name' => 'admin']);
         Permission::create(['name' => 'index-uesrs', 'guard_name' => 'admin']);
         Permission::create(['name' => 'delete-uesrs', 'guard_name' => 'admin']);
+        
+        Permission::create(['name' => 'create-conditions', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'update-conditions', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'index-conditions', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'delete-conditions', 'guard_name' => 'admin']);
+         
+        Permission::create(['name' => 'create-blogs', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'update-blogs', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'index-blogs', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'delete-blogs', 'guard_name' => 'admin']);
+        
+        Permission::create(['name' => 'create-sections', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'update-sections', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'index-sections', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'delete-sections', 'guard_name' => 'admin']);
+        
     }
 }
